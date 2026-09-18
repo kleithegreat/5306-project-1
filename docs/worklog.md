@@ -196,3 +196,103 @@ The timing table in `docs/validation.md` restates, now at author level, why the 
 landmark is the right choice and why the early cohorts were dropped at Gate 1: from 2023
 the median first note waits 0.23–0.34 days for a verdict and the 90th percentile is
 1.4–4.2 days, while the 2021 cohort has 2,938 authors and not one recorded verdict.
+
+---
+
+## HUMAN GATE 2 passed — contributor table frozen (2026-09-18)
+
+Kevin accepted `docs/validation.md`. **`data/processed/contributors.parquet` is frozen
+as of commit `ca09296`.** Later milestones may filter it; rebuilding it needs a human to
+say so.
+
+He also delegated the remaining open call. Recorded here because it changes the sample:
+
+**Authors whose first note has no `noteStatusHistory` row are excluded.** All 15,997 of
+them. We do not know what happened to those notes, and the alternative — calling them NMR
+— would put a group that grows from 3.1% of the 2024 cohort to 9.9% of 2026 into the
+comparison group, manufacturing a cohort trend out of a data-coverage artefact. Excluding
+them costs 4.7% of authors and is the conservative direction: it removes cases from the
+NMR side, which is the side the headline result needs to be strongest.
+
+---
+
+## M0 follow-up — author IDs are stable (2026-09-18)
+
+Done inside the download window after all. `src/check_id_stability.py` compares
+`noteStatusHistory` across the 2026-09-18 and 2026-09-16 releases: **3,282,773 notes in
+both, zero author-ID mismatches**, and nothing present in the older release had
+disappeared from the newer one. The report can say we checked rather than assumed.
+
+## M5 — Exclusions (2026-09-18)
+
+`src/exclusions.py` is the only way anything downstream gets a sample. 343,176 authors →
+**322,094**. AI writers cost 35, pre-2023 cohorts 5,052, unscored first notes 15,997.
+`flag_not_misleading` is carried but not applied, per Gate 1.
+
+## M6a–M6f, M7 — Analysis (2026-09-18)
+
+**The headline is −15.0 pp** (30-day retention, Not Helpful minus NMR, 95% CI −15.5 to
+−14.5). Helpful sits only +2.1 pp above NMR. The asymmetry is the first surprise:
+approval barely moves anyone, rejection moves a lot.
+
+**M6c found a structural break and it changes the finding.** The gap is −6.1 pp for
+cohorts before 2024-04 and −17.1 pp from 2024-04 onward, and the monthly series shows Not
+Helpful retention collapsing from ~28% in 2024-02 to 9.6% in 2024-04. That is the month X
+began locking writing ability on a single Not Helpful note. 2024-03 is already part-way
+there, which is what you would expect given verdicts arrive days after the note.
+
+**M6f bounds it, and the bound is uncomfortable.** 89.4% of Not Helpful authors have
+earned out at least once against 16.8% of NMR authors, and 48.7% are still locked out.
+Among Not Helpful authors who wrote exactly one note and earned out, the median gap
+between verdict and earn-out is **0.03 days** and 84% earned out within a week. The
+verdict and the lockout are effectively the same event.
+
+The obvious objection — that `timestampOfLastEarnOut` is the most recent earn-out, so a
+2023 author's could have happened later under the new rule — turned out to matter. Only
+**1.2%** of pre-2024-04 Not Helpful authors have an earn-out stamped before the rule date,
+against 0.3% of NMR. So the pre-rule cohorts really were unlocked, and their −6.1 pp gap
+is not mechanical. At most 1.2 of those 6.1 points could be.
+
+**So the honest finding is not the one we set out expecting.** An explicit Not Helpful
+verdict predicts sharply lower continued contribution than no verdict — but most of that
+is X's lockout doing what it was built to do, not contributors giving up. The
+discouragement association is the ~5 points visible before the lockout rule existed, not
+the 15 points in the pooled sample. `docs/lockout.md` says this in full. **The headline
+sentence needs a human decision at Gate 3**, because the natural phrasing of M6a's number
+would be misleading on its own.
+
+Smaller things worth keeping:
+
+- **M6b:** the naive specification gives −21.1 pp against the landmark's −15.0, overstating
+  by 6.1 pp. Most of that is keeping the authors who wrote again within the week, before
+  any feedback could have reached them. Censoring was held identical in both so the
+  comparison isolates the landmark.
+- **M6d:** Kaplan-Meier agrees with the landmark proportions to within half a point at day
+  90 (43.7 / 19.0 / 41.2 against 43.7 / 19.3 / 41.4), which is a useful independent check
+  on the censoring. `lifelines` never built (see M0), so this is `statsmodels`.
+- **M6e:** the regression gives −18.5 pp against the raw −15.0. Not a contradiction —
+  cohort fixed effects make the comparison within cohort, which drops the early cohorts'
+  smaller gaps out of the average. Both numbers are reported. A first note saying the post
+  is *not* misleading is associated with **+2.5 pp** retention once status is held
+  constant, which supports the Gate 1 decision to keep those notes in.
+- **M7:** every variation keeps the sign, spanning −5.7 to −18.2 pp against the −15.0
+  baseline. The stricter "two or more later notes" definition is the low end, k=3 the high
+  end. None of this is where the sensitivity lives; M6c is.
+
+## M8 — Figures (2026-09-18)
+
+Four vector PDFs generated from `out/tables/` only. Palette is Okabe-Ito blue /
+vermillion / bluish-green, checked with a colourblind-separation validator rather than by
+eye — the first choice used grey for NMR and failed a chroma floor.
+
+Drawing fig3 exposed a real artefact. The most recent cohort month spiked upward in every
+series, because only authors who joined in the first days of that month could have a
+30-day window close before the data cutoff — a biased slice, not a cohort. Fixed in the
+analysis rather than the chart: `by_cohort.csv` now carries `cohort_complete`, the
+markdown flags partial months, and fig1 and fig3 drop them.
+
+## M9 — Numbers freeze (2026-09-18)
+
+`out/results.json` is built by `src/collect_results.py` from `out/tables/` and nothing
+else. Two numbers were hand-typed into it on the first pass and have been replaced by
+values read from `lockout_summary.csv`. The report and slide quote this file only.

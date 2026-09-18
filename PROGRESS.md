@@ -162,7 +162,7 @@ the row count equals the number of distinct authors in `notes`.
 
 ## HUMAN GATE 2
 
-**Status:** TODO
+**Status:** PASSED (2026-09-18, Kevin Lei — `docs/validation.md` accepted; table frozen)
 
 A human reads `docs/validation.md`, in particular the 20 hand-checked authors, and
 confirms the table is trustworthy. After this gate the contributor table is **frozen**:
@@ -174,7 +174,7 @@ Mark `PASSED` and note the freeze in `docs/worklog.md`.
 
 ## M5 — Exclusions layer
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** HUMAN GATE 1, HUMAN GATE 2
 **Output:** `src/exclusions.py`, `docs/exclusions.md`
 
@@ -192,7 +192,7 @@ ruled out. Optional flag, used only in M7: notes classified not misleading.
 
 ## M6a — Primary analysis: day-7 landmark
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M5
 **Output:** `out/tables/primary.csv`, `out/tables/primary.md`, `src/analysis_primary.py`
 
@@ -222,7 +222,7 @@ the result.
 
 ## M6b — Naive comparison
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M5
 **Output:** `out/tables/naive.csv`, `out/tables/naive.md`
 
@@ -243,7 +243,7 @@ easy it is to get this question wrong.
 
 ## M6c — Cohort breakdown
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M5
 **Output:** `out/tables/by_cohort.csv`, `out/tables/by_cohort.md`
 
@@ -260,7 +260,7 @@ note whether any visible shift lines up with one.
 
 ## M6d — Survival curves
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M5
 **Output:** `out/tables/km.csv`, `src/analysis_survival.py`
 
@@ -280,7 +280,7 @@ later cohorts drag it downward for reasons unrelated to the question.
 
 ## M6e — Logit regression
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M6a
 **Output:** `out/tables/logit.csv`
 
@@ -301,7 +301,7 @@ disagreement is documented.
 
 ## M6f — Lockout check
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M5
 **Output:** `out/tables/enrollment.csv`, `docs/lockout.md`
 
@@ -322,7 +322,7 @@ than solving it. Say that in the writeup.
 
 ## M7 — Robustness
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M6a
 **Output:** `out/tables/robustness.csv`
 
@@ -342,7 +342,7 @@ report.
 
 ## M8 — Figures
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M6a, M6b, M6c, M6d
 **Output:** `out/figures/`, `src/figures.py`
 
@@ -364,7 +364,7 @@ If time runs short, fig2 and fig3 are the ones that must exist.
 
 ## M9 — Numbers freeze
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M6a–M6f, M7, M8
 **Output:** `out/results.json`
 
