@@ -1,0 +1,157 @@
+% CS 5306 / INFO 5306 Project 1 report.
+%
+% acmart/sigconf: ships with TeX Live and Overleaf, so this compiles out of the box.
+% Build: pdflatex report && bibtex report && pdflatex report && pdflatex report
+
+\documentclass[sigconf,nonacm]{acmart}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+% Course submission, not a real ACM paper: drop the conference furniture.
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+\begin{document}
+
+\title{Feedback and Newcomer Retention in X Community Notes}
+\subtitle{CS 5306 / INFO 5306, Project 1}
+
+\author{Kevin Lei}
+\affiliation{\institution{Cornell University}\country{}}
+\email{kl2344@cornell.edu}
+
+\author{Kyungmin Nam}
+\affiliation{\institution{Cornell University}\country{}}
+\email{kn467@cornell.edu}
+
+\author{Brittany Sun}
+\affiliation{\institution{Cornell University}\country{}}
+\email{bs835@cornell.edu}
+
+\begin{abstract}
+% Question, data, method in one clause, headline number, and one sentence on what it
+% does and does not establish.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+% State the Not Helpful versus NMR comparison as the core of the paper by the end of the
+% second paragraph, and give the finding in one sentence before the section ends.
+
+\section{The System}
+\label{sec:system}
+% Only the mechanics the reader needs. Two facts shape the interpretation and must
+% appear: contributors earn the ability to write by rating first, so our "newcomers" are
+% already experienced raters; and Not Helpful ratings interact with Writing Impact
+% (Section~\ref{sec:threats}).
+
+\section{Related Work}
+% Wikipedia newcomer retention under negative early feedback, and why Community Notes is
+% a useful contrast: rejection here is the output of a scoring rule rather than a
+% person's judgment, and the no-verdict condition has no clean Wikipedia analogue.
+
+\section{Data}
+\label{sec:data}
+% Tables, snapshot date, row counts, and the two fields the project rests on. Numbers
+% from out/results.json; snapshot details from docs/worklog.md.
+% Note the one-week upstream retention window and that we archived locally.
+% Report the author-identifier stability check if M0 ran one; if not, state the
+% stability assumption as an assumption.
+% Say what we deliberately did not use (ratings table, post text) and why.
+
+\section{Method}
+\label{sec:method}
+
+\subsection{Contributor-level dataset}
+% One row per author: first note, its outcome and timing, the next note, cohort, and
+% first-note features.
+
+\subsection{Landmark classification}
+\label{sec:landmark}
+% The central methodological choice. Classify by status seven days after the note was
+% written, drop authors who returned before day 7, measure retention from day 7 onward.
+% Why: eventual status uses information that did not exist when the contributor decided
+% whether to return, and makes the NMR group a function of the snapshot date rather than
+% of the contributor's experience.
+
+\subsection{Retention and censoring}
+% 30/60/90 days past the landmark; windows extending past the snapshot are censored.
+
+\subsection{Exclusions}
+% Counts per exclusion, referencing docs/exclusions.md.
+
+\section{Results}
+\label{sec:results}
+
+% Headline sentence first, in the units the reader cares about.
+
+\begin{table}[t]
+  \caption{Retention by first-note outcome at day 7. Wilson 95\% intervals.}
+  \label{tab:primary}
+  \begin{tabular}{lrrr}
+    \toprule
+    First-note outcome & $n$ & 30-day & 90-day \\
+    \midrule
+    Helpful     &  &  &  \\
+    Not Helpful &  &  &  \\
+    No verdict (NMR) &  &  &  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  % \includegraphics[width=\columnwidth]{../out/figures/fig2.pdf}
+  \caption{Retention by first-note outcome at 30, 60, and 90 days, with 95\% intervals.}
+  \label{fig:retention}
+\end{figure}
+
+\subsection{The Not Helpful versus no-verdict comparison}
+% The difference and its interval. This subsection is the answer to the paper's question.
+
+\subsection{Cohorts}
+% Whether the pattern is stable across the program's history, and whether any visible
+% shift lines up with a known policy or algorithm change.
+
+\begin{figure}[t]
+  \centering
+  % \includegraphics[width=\columnwidth]{../out/figures/fig3.pdf}
+  \caption{30-day retention by cohort month and first-note outcome.}
+  \label{fig:cohort}
+\end{figure}
+
+\subsection{Time to return}
+% Kaplan-Meier curves. State the censoring rule explicitly.
+
+\section{Robustness}
+% Landmark at 3, 7, 14 days; excluding not-misleading notes; alternative retention
+% definitions; and the naive eventual-status specification, including how far the
+% headline difference moves between the two.
+
+\section{Threats to Validity}
+\label{sec:threats}
+% In order of how much they could change the conclusion:
+%   1. Writing lockouts. If Not Helpful ratings can cost a contributor the ability to
+%      write, a retention gap may be the system rather than discouragement. Report what
+%      userEnrollment can and cannot rule out.
+%   2. Selection. Weak first notes may come from less committed contributors. Controlling
+%      for observable note features is not the same as solving this.
+%   3. Notification. We do not observe whether a contributor saw their note's status.
+%   4. Automated authors in later cohorts.
+
+\section{What We Did}
+\label{sec:work}
+% The assignment asks for a sense of the technical work behind four weeks of three
+% people. Draw on docs/worklog.md, including what did not work.
+
+\section{Conclusion}
+% Two paragraphs. The answer, and what it suggests about designing a system where
+% "no decision yet" is a common outcome.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\end{document}
