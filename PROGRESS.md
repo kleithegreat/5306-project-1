@@ -64,7 +64,7 @@ documentation is ambiguous are called out as ambiguous.
 
 ## HUMAN GATE 1
 
-**Status:** TODO
+**Status:** PASSED (2026-09-18, Kevin Lei — decisions at the bottom of `docs/system-rules.md`)
 
 A human reads `docs/system-rules.md` and decides:
 
@@ -79,7 +79,7 @@ mark this gate `PASSED`.
 
 ## M2 — Schema and data dictionary
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M0
 **Output:** `docs/data-dictionary.md`
 
@@ -102,7 +102,7 @@ null rate in a key field, author ID mismatch between tables) is flagged at the t
 
 ## M3 — Contributor table ETL
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M2
 **Output:** `data/processed/contributors.parquet`, `src/build_contributors.py`
 
@@ -141,7 +141,7 @@ the row count equals the number of distinct authors in `notes`.
 
 ## M4 — Table validation
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M3
 **Output:** `docs/validation.md`, `src/validate_contributors.py`
 

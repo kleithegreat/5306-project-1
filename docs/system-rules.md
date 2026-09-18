@@ -216,11 +216,31 @@ with no `0` or `-1` sentinels.
 
 ## Decisions
 
-*To be completed by a human at HUMAN GATE 1.*
+Made by Kevin Lei at HUMAN GATE 1, 2026-09-18, accepting the recommendations above.
 
-- Lockout rule: dedicated report section / paragraph / footnote?
-- AI authors: excluded? by what rule?
-- Cohorts dropped entirely?
-- `NOT_MISLEADING` first notes: M5 currently treats this as an optional flag used only in
-  M7 robustness. Flag 4 argues it is closer to a structural exclusion. Keep as optional,
-  or promote?
+1. **Lockout gets its own report section.** Not a footnote. The finding is that a single
+   Not Helpful first note mechanically locks writing ability *and* that the rule has a
+   date we can test either side of. The method is the interesting part, so it gets room.
+
+2. **AI note writers are excluded.** The rule is `enrollmentState LIKE 'api%'`, not
+   equality against `apiEarnedIn`, so that `apiEarnedOut` and `apiTestUser` are caught if
+   they appear. Costs 35 authors of 343,176. Implemented in `src/exclusions.py` (M5) as a
+   boolean column, with counts in `docs/exclusions.md`.
+
+3. **The analysis starts at cohort month 2023-01.** Everything before 2022-05 has no
+   recorded verdicts at all and cannot support the comparison; 2022-05 through 2022-12 is
+   contaminated by the 2023-01-20 retro-scoring. Cost is roughly 5,000 authors, about
+   1.5% of the sample, to remove data we know is distorted.
+
+4. **`NOT_MISLEADING` first notes stay in the primary analysis**, and the version
+   excluding them is promoted from a robustness table row to a headline robustness number
+   reported in the paper. Excluding them by default would quietly answer a narrower
+   question than the one we asked; hiding the comparison would understate a real
+   composition effect in the Not Helpful group. M6e already controls for classification,
+   so the regression gives a third read on the same issue.
+
+### Still open, not blocking
+
+The second-snapshot author-ID stability check (M0) has not been done and the window
+closes around 2026-09-25. Until it is, the report says we assumed author IDs are stable
+across releases, not that we verified it.

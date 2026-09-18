@@ -106,3 +106,93 @@ shell to any plain HTTP fetch. The pages are built from markdown in
 cites. X's product blog returns 403, so one date (the September 2022 rater gate) rests on
 trade coverage rather than the primary source; it is flagged as such in the doc and does
 not touch the analysis.
+
+---
+
+## M2 — Schema and data dictionary (2026-09-18)
+
+`src/profile_schema.py` generates `docs/data-dictionary.md` entirely from the Parquet
+files. Nothing in it is hand-typed and nothing is copied from X's published column
+descriptions, so it records what this snapshot contains rather than what it should.
+
+**The surprise: 233,514 notes — 7.6% — have no `noteStatusHistory` row at all.** The
+published description implies that table covers every scored note, and it does not. These
+notes have no recorded outcome of any kind, which is *not* the same as never leaving NMR,
+and folding the two together would inflate the NMR group.
+
+It is not a recency artefact. The affected notes run from 2024-03-19 to the end of the
+snapshot, across 28 months, at a rate rising from 6.7% in 2025-12 to 14.1% in 2026-09.
+No single cause is visible in the data: the rate is 10.7% for misleading notes and 4.5%
+for not-misleading, 9.7% for non-media and 6.2% for media, 9.3% for regular notes and
+22.7% for collaborative ones. Collaborative notes are the worst affected but are far too
+few to explain the total.
+
+**15,997 authors (4.7%) have an unscored first note** — 3.1% of the 2024 cohort, 7.7% of
+2025, 9.9% of 2026. Because the rate trends upward over time, treating these as NMR would
+bias the cohort analysis in M6c in a direction that looks like a real trend. Flagged, not
+worked around; the disposition is Gate 2's and M5's call. See M3 below for how the table
+represents it.
+
+Other things the profile turned up, none of which change the plan:
+
+- The author identifier is `noteAuthorParticipantId` in both `notes` and
+  `noteStatusHistory`, and `participantId` in `userEnrollment`. The published dictionary
+  calls the `notes` column `participantId`, which is wrong for this snapshot. The two
+  note tables never disagree about a note's author (0 conflicts on 2.85M joined notes),
+  and every one of the 343,176 note authors has a `userEnrollment` row.
+- `believable`, `harmful` and `validationDifficulty` are 99.2% null — the fields
+  deprecated in 2022-10.
+- `timestampMinuteOfFinalScoringOutput` has exactly one distinct value across 3.29M rows.
+- `timestampMillisOfRetroLock` is 100% null, so the January 2023 retro-lock left no trace
+  in this snapshot.
+
+## M3 — Contributor table (2026-09-18)
+
+`src/build_contributors.py` writes `data/processed/contributors.parquet`: 343,176 rows,
+one per distinct note author, matching the note table exactly. Nothing is filtered.
+
+First note is earliest `createdAtMillis`, ties broken by `noteId` so the ordering is
+total and the build is deterministic. The second note comes from `lead()` over the same
+window rather than a self-join. Reason-tag columns are discovered from the schema rather
+than hardcoded, and stored as a list of the tags the author actually set.
+
+**Two columns beyond the M3 spec, both because the spec conflated things the data
+separates.**
+
+`first_note_scored` — whether the first note has a `noteStatusHistory` row at all. The
+spec says `first_verdict_status` is "null if never resolved", but after M2 null means
+either "sat in NMR and never resolved" or "we have no outcome record for this note".
+Those are different facts and the second one trends over time. Rather than pick one
+meaning, the table carries both: `first_verdict_status` exactly as specified, and a
+boolean saying whether the lookup found anything. M5 decides what to do with it.
+
+`data_cutoff_at` — the latest note creation time in the snapshot (2026-09-16), alongside
+`snapshot_at` (2026-09-18) as specified. Snapshots only contain notes created up to 48
+hours before release, so censoring against `snapshot_at` would credit two days of
+observation that cannot contain a note. **M6a must censor against `data_cutoff_at`.**
+
+## M4 — Validation (2026-09-18)
+
+`src/validate_contributors.py` writes `docs/validation.md`. **12 of 12 checks pass and
+all 20 hand-checked authors match the raw TSVs field for field.**
+
+The hand-check rebuilds each sampled author from the TSVs in plain Python — separate
+parser, separate code path, no DuckDB — so a bug shared between the build query and the
+checks cannot hide in both. Authors are sampled by `md5(author_id || seed)`, so the same
+20 come back on every run.
+
+Two checks were added beyond the six the milestone lists. Comparing TSV newline counts
+against Parquet row counts confirms the conversion did not merge or split rows, which is
+the failure mode the `quote=''` setting exists to prevent — note text contains bare double
+quotes, and it turns out no note text contains a raw newline. Comparing
+`epoch_ms(raw_millis)` against each stored timestamp confirms the UTC conversion, which
+is why M3 keeps the raw millis columns.
+
+Nothing needed investigating: no author has a second note before their first, no first
+verdict precedes the note it belongs to, and `first_verdict_at` is null exactly when
+`first_verdict_status` is.
+
+The timing table in `docs/validation.md` restates, now at author level, why the day-7
+landmark is the right choice and why the early cohorts were dropped at Gate 1: from 2023
+the median first note waits 0.23–0.34 days for a verdict and the 90th percentile is
+1.4–4.2 days, while the 2021 cohort has 2,938 authors and not one recorded verdict.
