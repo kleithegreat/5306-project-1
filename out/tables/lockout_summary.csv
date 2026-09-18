@@ -1,0 +1,4 @@
+status,authors,locked_out_now,at_risk_now,ever_earned_out,removed,pre_rule_authors,pre_rule_earned_out_before_rule,single_note_earned_out,single_note_median_lag_days,single_note_earned_out_within_7_days
+Helpful,25104,660,236,1922,262,7283,23,,,
+Not Helpful,19462,9486,19,17392,387,4261,51,11720,0.025677083333333333,0.8395904436860068
+NMR,186022,14419,507,31171,2040,48622,122,,,

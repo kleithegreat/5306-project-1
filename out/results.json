@@ -1,0 +1,1393 @@
+{
+  "snapshot": {
+    "date": "2026-09-18",
+    "data_cutoff": "2026-09-16",
+    "table_rows": {
+      "notes": 3086867,
+      "noteStatusHistory": 3290294,
+      "userEnrollment": 1490672
+    },
+    "author_ids_verified_stable": {
+      "compared_against_release": "2026-09-16",
+      "notes_compared": 3282773,
+      "author_id_mismatches": 0
+    }
+  },
+  "sample": {
+    "authors_in_frozen_table": 343176,
+    "authors_after_exclusions": 322094,
+    "exclusions": {
+      "excl_api_author": 35,
+      "excl_pre_2023_cohort": 5052,
+      "excl_first_note_unscored": 15997
+    },
+    "not_misleading_flagged_in_sample": 80663
+  },
+  "headline": {
+    "statement": "Contributors whose first note is rejected are far less likely to write again than contributors who never get a verdict \u2014 but most of that gap is X's writing lockout, not discouragement. Before April 2024, when a single rejection could not lock writing ability, the gap was 6 points. After, it is 17.",
+    "chosen_at": "HUMAN GATE 3, 2026-09-18, Kevin Lei",
+    "pooled_difference_pp": -14.99698413908776,
+    "non_mechanical_lower_bound_pp": -4.885207547418258,
+    "landmark_days": 7,
+    "window_days": 30,
+    "difference_pp": -14.99698413908776,
+    "ci_low_pp": -15.469115918744263,
+    "ci_high_pp": -14.510905694578843,
+    "n_not_helpful": 19153,
+    "n_nmr": 183373,
+    "caveat": "The pooled -15.0 pp is mostly mechanical. The defensible discouragement figure is non_mechanical_lower_bound_pp, from cohorts that predate the lockout rule."
+  },
+  "primary": {
+    "retention": [
+      {
+        "status": "Helpful",
+        "window_days": 30,
+        "n": 24798,
+        "retained": 6849,
+        "proportion": 0.2761916283571256,
+        "ci_low": 0.27066172313795367,
+        "ci_high": 0.2817908631577175
+      },
+      {
+        "status": "Not Helpful",
+        "window_days": 30,
+        "n": 19153,
+        "retained": 2025,
+        "proportion": 0.10572756226178666,
+        "ci_low": 0.10145163855359259,
+        "ci_high": 0.11016161029720471
+      },
+      {
+        "status": "NMR",
+        "window_days": 30,
+        "n": 183373,
+        "retained": 46888,
+        "proportion": 0.25569740365266425,
+        "ci_low": 0.2537058104609642,
+        "ci_high": 0.25769923236108705
+      },
+      {
+        "status": "Helpful",
+        "window_days": 60,
+        "n": 24499,
+        "retained": 9177,
+        "proportion": 0.37458671782521735,
+        "ci_low": 0.368545971262634,
+        "ci_high": 0.38066678798705367
+      },
+      {
+        "status": "Not Helpful",
+        "window_days": 60,
+        "n": 18836,
+        "retained": 2931,
+        "proportion": 0.1556062858356339,
+        "ci_low": 0.15050001658241827,
+        "ci_high": 0.16085299939927114
+      },
+      {
+        "status": "NMR",
+        "window_days": 60,
+        "n": 180688,
+        "retained": 63821,
+        "proportion": 0.35321105994864077,
+        "ci_low": 0.3510103526541715,
+        "ci_high": 0.35541800862804457
+      },
+      {
+        "status": "Helpful",
+        "window_days": 90,
+        "n": 24212,
+        "retained": 10583,
+        "proportion": 0.43709730712043615,
+        "ci_low": 0.43085980970865007,
+        "ci_high": 0.4433547615595111
+      },
+      {
+        "status": "Not Helpful",
+        "window_days": 90,
+        "n": 18428,
+        "retained": 3556,
+        "proportion": 0.19296722378988496,
+        "ci_low": 0.18733379056594343,
+        "ci_high": 0.1987286370389422
+      },
+      {
+        "status": "NMR",
+        "window_days": 90,
+        "n": 177639,
+        "retained": 73466,
+        "proportion": 0.4135690923727335,
+        "ci_low": 0.4112808487712949,
+        "ci_high": 0.41586107404512107
+      }
+    ],
+    "differences": [
+      {
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.020494224704461328,
+        "ci_low": 0.01461313892793244,
+        "ci_high": 0.026437109003636758,
+        "n_status": 24798,
+        "n_reference": 183373
+      },
+      {
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1499698413908776,
+        "ci_low": -0.15469115918744264,
+        "ci_high": -0.14510905694578843,
+        "n_status": 19153,
+        "n_reference": 183373
+      },
+      {
+        "window_days": 60,
+        "comparison": "Helpful - NMR",
+        "difference": 0.02137565787657658,
+        "ci_low": 0.01494438727840667,
+        "ci_high": 0.027841751424367428,
+        "n_status": 24499,
+        "n_reference": 180688
+      },
+      {
+        "window_days": 60,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.19760477411300686,
+        "ci_low": -0.20316756191768337,
+        "ci_high": -0.19191521210747559,
+        "n_status": 18836,
+        "n_reference": 180688
+      },
+      {
+        "window_days": 90,
+        "comparison": "Helpful - NMR",
+        "difference": 0.02352821474770267,
+        "ci_low": 0.016882949218876998,
+        "ci_high": 0.030190931523660005,
+        "n_status": 24212,
+        "n_reference": 177639
+      },
+      {
+        "window_days": 90,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.22060186858284853,
+        "ci_low": -0.22668370628827678,
+        "ci_high": -0.2144026798128612,
+        "n_status": 18428,
+        "n_reference": 177639
+      }
+    ]
+  },
+  "naive": {
+    "retention": [
+      {
+        "status": "Helpful",
+        "window_days": 30,
+        "n": 37322,
+        "retained": 17607,
+        "proportion": 0.4717592840683779,
+        "ci_low": 0.4666978893635988,
+        "ci_high": 0.4768264916654096
+      },
+      {
+        "status": "Not Helpful",
+        "window_days": 30,
+        "n": 23854,
+        "retained": 5674,
+        "proportion": 0.23786367066320113,
+        "ci_low": 0.23250298799369687,
+        "ci_high": 0.2433087688416519
+      },
+      {
+        "status": "NMR",
+        "window_days": 30,
+        "n": 256747,
+        "retained": 115200,
+        "proportion": 0.4486907344584357,
+        "ci_low": 0.4467676867944152,
+        "ci_high": 0.4506153174820257
+      },
+      {
+        "status": "Helpful",
+        "window_days": 60,
+        "n": 36904,
+        "retained": 20383,
+        "proportion": 0.5523249512247995,
+        "ci_low": 0.5472464708663843,
+        "ci_high": 0.5573925393642455
+      },
+      {
+        "status": "Not Helpful",
+        "window_days": 60,
+        "n": 23492,
+        "retained": 6735,
+        "proportion": 0.28669334241443895,
+        "ci_low": 0.2809458263604549,
+        "ci_high": 0.29251060772534837
+      },
+      {
+        "status": "NMR",
+        "window_days": 60,
+        "n": 253413,
+        "retained": 134218,
+        "proportion": 0.5296413364744508,
+        "ci_low": 0.5276976049364743,
+        "ci_high": 0.5315841693667587
+      },
+      {
+        "status": "Helpful",
+        "window_days": 90,
+        "n": 36505,
+        "retained": 21893,
+        "proportion": 0.5997260649226134,
+        "ci_low": 0.5946897725912503,
+        "ci_high": 0.6047413709089464
+      },
+      {
+        "status": "Not Helpful",
+        "window_days": 90,
+        "n": 23063,
+        "retained": 7402,
+        "proportion": 0.3209469713393748,
+        "ci_low": 0.31495219546335235,
+        "ci_high": 0.3270013847550706
+      },
+      {
+        "status": "NMR",
+        "window_days": 90,
+        "n": 249823,
+        "retained": 144269,
+        "proportion": 0.5774848592803705,
+        "ci_low": 0.5755467104597094,
+        "ci_high": 0.5794206252113916
+      }
+    ]
+  },
+  "cohort": {
+    "period_retention": [
+      {
+        "period": "2024-04 onward",
+        "status": "Helpful",
+        "window_days": 30,
+        "n": 17515,
+        "retained": 4456,
+        "proportion": 0.2544105052811875,
+        "ci_low": 0.24801482886959314,
+        "ci_high": 0.2609138853823182
+      },
+      {
+        "period": "2024-04 onward",
+        "status": "Not Helpful",
+        "window_days": 30,
+        "n": 14892,
+        "retained": 950,
+        "proportion": 0.06379264034380876,
+        "ci_low": 0.05997899801956581,
+        "ci_high": 0.06783126795861556
+      },
+      {
+        "period": "2024-04 onward",
+        "status": "NMR",
+        "window_days": 30,
+        "n": 134751,
+        "retained": 31664,
+        "proportion": 0.234981558578415,
+        "ci_low": 0.23272534939202813,
+        "ci_high": 0.2372528775362717
+      },
+      {
+        "period": "before 2024-04",
+        "status": "Helpful",
+        "window_days": 30,
+        "n": 7283,
+        "retained": 2393,
+        "proportion": 0.3285733900865028,
+        "ci_low": 0.3178790355382067,
+        "ci_high": 0.3394484891360963
+      },
+      {
+        "period": "before 2024-04",
+        "status": "Not Helpful",
+        "window_days": 30,
+        "n": 4261,
+        "retained": 1075,
+        "proportion": 0.2522881952593288,
+        "ci_low": 0.23947437076452754,
+        "ci_high": 0.26554826128807646
+      },
+      {
+        "period": "before 2024-04",
+        "status": "NMR",
+        "window_days": 30,
+        "n": 48622,
+        "retained": 15224,
+        "proportion": 0.31310929209000044,
+        "ci_low": 0.30900204585936486,
+        "ci_high": 0.31724606718581827
+      }
+    ],
+    "period_differences": [
+      {
+        "period": "2024-04 onward",
+        "comparison": "Helpful - NMR",
+        "difference_pp": 1.9428946702772536,
+        "ci_low_pp": 1.264193214774585,
+        "ci_high_pp": 2.631258183491883,
+        "n_status": 17515,
+        "n_reference": 134751
+      },
+      {
+        "period": "2024-04 onward",
+        "comparison": "Not Helpful - NMR",
+        "difference_pp": -17.118891823460626,
+        "ci_low_pp": -17.56276970740593,
+        "ci_high_pp": -16.656279751592447,
+        "n_status": 14892,
+        "n_reference": 134751
+      },
+      {
+        "period": "before 2024-04",
+        "comparison": "Helpful - NMR",
+        "difference_pp": 1.546409799650239,
+        "ci_low_pp": 0.3997532364280982,
+        "ci_high_pp": 2.7088952874630525,
+        "n_status": 7283,
+        "n_reference": 48622
+      },
+      {
+        "period": "before 2024-04",
+        "comparison": "Not Helpful - NMR",
+        "difference_pp": -6.082109683067166,
+        "ci_low_pp": -7.428612584575167,
+        "ci_high_pp": -4.693949668206421,
+        "n_status": 4261,
+        "n_reference": 48622
+      }
+    ],
+    "monthly_differences": [
+      {
+        "cohort_month": "2023-01",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.030656934306569295,
+        "ci_low": -0.1976369708439087,
+        "ci_high": 0.1520201989169498,
+        "n_status": 35,
+        "n_reference": 137
+      },
+      {
+        "cohort_month": "2023-01",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": 0.06934306569343068,
+        "ci_low": -0.20703961994049208,
+        "ci_high": 0.34460393478123874,
+        "n_status": 10,
+        "n_reference": 137
+      },
+      {
+        "cohort_month": "2023-02",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.2,
+        "ci_low": 0.029439058849405758,
+        "ci_high": 0.35415938801970953,
+        "n_status": 39,
+        "n_reference": 195
+      },
+      {
+        "cohort_month": "2023-02",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.05641025641025643,
+        "ci_low": -0.2803640423157264,
+        "ci_high": 0.2628845684709513,
+        "n_status": 9,
+        "n_reference": 195
+      },
+      {
+        "cohort_month": "2023-03",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.08818426155887454,
+        "ci_low": -0.0034617688326880475,
+        "ci_high": 0.18385927345486147,
+        "n_status": 119,
+        "n_reference": 741
+      },
+      {
+        "cohort_month": "2023-03",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.11576758945179999,
+        "ci_low": -0.20160454414441972,
+        "ci_high": -0.004262588055157376,
+        "n_status": 74,
+        "n_reference": 741
+      },
+      {
+        "cohort_month": "2023-04",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.06392915156816198,
+        "ci_low": -0.01559428697745148,
+        "ci_high": 0.14610958248652897,
+        "n_status": 159,
+        "n_reference": 1208
+      },
+      {
+        "cohort_month": "2023-04",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.08973008227975116,
+        "ci_low": -0.16457666105897092,
+        "ci_high": -0.0034713657488001926,
+        "n_status": 132,
+        "n_reference": 1208
+      },
+      {
+        "cohort_month": "2023-05",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.008295625942684792,
+        "ci_low": -0.05918849307691597,
+        "ci_high": 0.0811914096153515,
+        "n_status": 195,
+        "n_reference": 1530
+      },
+      {
+        "cohort_month": "2023-05",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.15993866741009197,
+        "ci_low": -0.21128893127102105,
+        "ci_high": -0.09840657263411703,
+        "n_status": 211,
+        "n_reference": 1530
+      },
+      {
+        "cohort_month": "2023-06",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.04068902888926729,
+        "ci_low": -0.025322460484899542,
+        "ci_high": 0.11112095651525533,
+        "n_status": 210,
+        "n_reference": 1678
+      },
+      {
+        "cohort_month": "2023-06",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.07782948962925124,
+        "ci_low": -0.1379604573649386,
+        "ci_high": -0.008388144034036898,
+        "n_status": 189,
+        "n_reference": 1678
+      },
+      {
+        "cohort_month": "2023-07",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.07409910188803404,
+        "ci_low": 0.024003416000906032,
+        "ci_high": 0.1262019877984556,
+        "n_status": 386,
+        "n_reference": 2929
+      },
+      {
+        "cohort_month": "2023-07",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.11079117546643105,
+        "ci_low": -0.15042752781719548,
+        "ci_high": -0.06619519633915835,
+        "n_status": 408,
+        "n_reference": 2929
+      },
+      {
+        "cohort_month": "2023-08",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.07413990406184218,
+        "ci_low": 0.03869919356756137,
+        "ci_high": 0.11100813532002979,
+        "n_status": 743,
+        "n_reference": 4875
+      },
+      {
+        "cohort_month": "2023-08",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.06279929594215308,
+        "ci_low": -0.09694450526281811,
+        "ci_high": -0.02482453461779125,
+        "n_status": 539,
+        "n_reference": 4875
+      },
+      {
+        "cohort_month": "2023-09",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.027465639167766787,
+        "ci_low": -0.026755256291669527,
+        "ci_high": 0.08506582439091398,
+        "n_status": 308,
+        "n_reference": 2538
+      },
+      {
+        "cohort_month": "2023-09",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.04188817774702569,
+        "ci_low": -0.10161501004047749,
+        "ci_high": 0.025506997341464818,
+        "n_status": 205,
+        "n_reference": 2538
+      },
+      {
+        "cohort_month": "2023-10",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.0045198869918776086,
+        "ci_low": -0.030235608242738965,
+        "ci_high": 0.040632655536128104,
+        "n_status": 787,
+        "n_reference": 5223
+      },
+      {
+        "cohort_month": "2023-10",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.03185623594679482,
+        "ci_low": -0.0742756077058397,
+        "ci_high": 0.013615878265603718,
+        "n_status": 457,
+        "n_reference": 5223
+      },
+      {
+        "cohort_month": "2023-11",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.006922758889051028,
+        "ci_low": -0.04250118487775749,
+        "ci_high": 0.030436062010994948,
+        "n_status": 712,
+        "n_reference": 4620
+      },
+      {
+        "cohort_month": "2023-11",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": 0.015070346320346317,
+        "ci_low": -0.03401077964571701,
+        "ci_high": 0.06756136098255995,
+        "n_status": 352,
+        "n_reference": 4620
+      },
+      {
+        "cohort_month": "2023-12",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.01712421757100907,
+        "ci_low": -0.049938099162873444,
+        "ci_high": 0.01698037605108755,
+        "n_status": 881,
+        "n_reference": 5426
+      },
+      {
+        "cohort_month": "2023-12",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.04205621221549888,
+        "ci_low": -0.08690882988336385,
+        "ci_high": 0.006312527360183083,
+        "n_status": 401,
+        "n_reference": 5426
+      },
+      {
+        "cohort_month": "2024-01",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.01710168071626783,
+        "ci_low": -0.047352879825475216,
+        "ci_high": 0.014751979502994055,
+        "n_status": 923,
+        "n_reference": 6456
+      },
+      {
+        "cohort_month": "2024-01",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.021606320495240194,
+        "ci_low": -0.06179771458061769,
+        "ci_high": 0.022010504388425264,
+        "n_status": 469,
+        "n_reference": 6456
+      },
+      {
+        "cohort_month": "2024-02",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.017551316571928488,
+        "ci_low": -0.01657706403848696,
+        "ci_high": 0.05317339718698409,
+        "n_status": 791,
+        "n_reference": 5098
+      },
+      {
+        "cohort_month": "2024-02",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.02115779995750905,
+        "ci_low": -0.06768580218709566,
+        "ci_high": 0.029843196193089602,
+        "n_status": 349,
+        "n_reference": 5098
+      },
+      {
+        "cohort_month": "2024-03",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.0010742384846484376,
+        "ci_low": -0.028792626791081993,
+        "ci_high": 0.03230401248637435,
+        "n_status": 995,
+        "n_reference": 5968
+      },
+      {
+        "cohort_month": "2024-03",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.12453847420158978,
+        "ci_low": -0.15821552182487938,
+        "ci_high": -0.08570394104314896,
+        "n_status": 456,
+        "n_reference": 5968
+      },
+      {
+        "cohort_month": "2024-04",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.011571927078885325,
+        "ci_low": -0.017418115861651224,
+        "ci_high": 0.04175506782393138,
+        "n_status": 1078,
+        "n_reference": 6539
+      },
+      {
+        "cohort_month": "2024-04",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.19728376443576573,
+        "ci_low": -0.2223967796470145,
+        "ci_high": -0.16683045073180658,
+        "n_status": 519,
+        "n_reference": 6539
+      },
+      {
+        "cohort_month": "2024-05",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.004808710718199605,
+        "ci_low": -0.025294819991806522,
+        "ci_high": 0.036353146483530066,
+        "n_status": 958,
+        "n_reference": 6820
+      },
+      {
+        "cohort_month": "2024-05",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.18974240145057458,
+        "ci_low": -0.21436323026694779,
+        "ci_high": -0.1604105959736919,
+        "n_status": 579,
+        "n_reference": 6820
+      },
+      {
+        "cohort_month": "2024-06",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.04792580916018441,
+        "ci_low": -0.07669566720977634,
+        "ci_high": -0.01740266916794073,
+        "n_status": 952,
+        "n_reference": 7426
+      },
+      {
+        "cohort_month": "2024-06",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.19416763922554386,
+        "ci_low": -0.21771721308737388,
+        "ci_high": -0.1668960630557437,
+        "n_status": 711,
+        "n_reference": 7426
+      },
+      {
+        "cohort_month": "2024-07",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.012326953095566695,
+        "ci_low": -0.014850839512080063,
+        "ci_high": 0.04066233091862759,
+        "n_status": 1181,
+        "n_reference": 8799
+      },
+      {
+        "cohort_month": "2024-07",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1819729066968397,
+        "ci_low": -0.20303283550336793,
+        "ci_high": -0.15781656381480538,
+        "n_status": 863,
+        "n_reference": 8799
+      },
+      {
+        "cohort_month": "2024-08",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.0099579709564665,
+        "ci_low": -0.016214238513422127,
+        "ci_high": 0.03803029034139717,
+        "n_status": 1009,
+        "n_reference": 7228
+      },
+      {
+        "cohort_month": "2024-08",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1651109400940786,
+        "ci_low": -0.18058977702821558,
+        "ci_high": -0.14599048970396697,
+        "n_status": 768,
+        "n_reference": 7228
+      },
+      {
+        "cohort_month": "2024-09",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.01893131446126839,
+        "ci_low": -0.05288247531564167,
+        "ci_high": 0.018164216904008698,
+        "n_status": 600,
+        "n_reference": 4557
+      },
+      {
+        "cohort_month": "2024-09",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.20059798112793506,
+        "ci_low": -0.2196587966652022,
+        "ci_high": -0.1761382035979176,
+        "n_status": 504,
+        "n_reference": 4557
+      },
+      {
+        "cohort_month": "2024-10",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.0121668445110088,
+        "ci_low": -0.04327575761433593,
+        "ci_high": 0.021092951271912304,
+        "n_status": 791,
+        "n_reference": 5848
+      },
+      {
+        "cohort_month": "2024-10",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.18852791621396936,
+        "ci_low": -0.20989584578599343,
+        "ci_high": -0.16272553619734872,
+        "n_status": 622,
+        "n_reference": 5848
+      },
+      {
+        "cohort_month": "2024-11",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.051729094289768573,
+        "ci_low": 0.01996503535227377,
+        "ci_high": 0.08506121638854658,
+        "n_status": 856,
+        "n_reference": 6112
+      },
+      {
+        "cohort_month": "2024-11",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.17927047601853524,
+        "ci_low": -0.19930567021114232,
+        "ci_high": -0.15529675033162968,
+        "n_status": 696,
+        "n_reference": 6112
+      },
+      {
+        "cohort_month": "2024-12",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.012688047611175368,
+        "ci_low": -0.01639913484803771,
+        "ci_high": 0.043056981691990584,
+        "n_status": 1052,
+        "n_reference": 6049
+      },
+      {
+        "cohort_month": "2024-12",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.21093804506875302,
+        "ci_low": -0.23117066542866319,
+        "ci_high": -0.18681674893526376,
+        "n_status": 699,
+        "n_reference": 6049
+      },
+      {
+        "cohort_month": "2025-01",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.0119164621345344,
+        "ci_low": -0.017155795394079854,
+        "ci_high": 0.042694494595199,
+        "n_status": 941,
+        "n_reference": 7184
+      },
+      {
+        "cohort_month": "2025-01",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.18378379718571664,
+        "ci_low": -0.20260447009200747,
+        "ci_high": -0.16145037173854768,
+        "n_status": 786,
+        "n_reference": 7184
+      },
+      {
+        "cohort_month": "2025-02",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.004948972802118146,
+        "ci_low": -0.027279315323201443,
+        "ci_high": 0.03963528812860516,
+        "n_status": 713,
+        "n_reference": 5259
+      },
+      {
+        "cohort_month": "2025-02",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.184354440007606,
+        "ci_low": -0.20361458791961826,
+        "ci_high": -0.1605134298367109,
+        "n_status": 600,
+        "n_reference": 5259
+      },
+      {
+        "cohort_month": "2025-03",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": -0.007970221737928718,
+        "ci_low": -0.04102778800277151,
+        "ci_high": 0.028770283283200672,
+        "n_status": 564,
+        "n_reference": 4901
+      },
+      {
+        "cohort_month": "2025-03",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1467134572594238,
+        "ci_low": -0.1666495220342834,
+        "ci_high": -0.12249440585377261,
+        "n_status": 633,
+        "n_reference": 4901
+      },
+      {
+        "cohort_month": "2025-04",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.038031230498467905,
+        "ci_low": -0.0011157015692394648,
+        "ci_high": 0.08200017105622023,
+        "n_status": 411,
+        "n_reference": 3470
+      },
+      {
+        "cohort_month": "2025-04",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.14159793302196166,
+        "ci_low": -0.16060087364041542,
+        "ci_high": -0.11589697514977274,
+        "n_status": 406,
+        "n_reference": 3470
+      },
+      {
+        "cohort_month": "2025-05",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.014831893429444687,
+        "ci_low": -0.025736001601272845,
+        "ci_high": 0.06167542908080722,
+        "n_status": 342,
+        "n_reference": 2979
+      },
+      {
+        "cohort_month": "2025-05",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.14710158610271903,
+        "ci_low": -0.16643280316252795,
+        "ci_high": -0.1192976918301636,
+        "n_status": 320,
+        "n_reference": 2979
+      },
+      {
+        "cohort_month": "2025-06",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.015936610419806374,
+        "ci_low": -0.022645318485952116,
+        "ci_high": 0.05933800797186619,
+        "n_status": 418,
+        "n_reference": 3486
+      },
+      {
+        "cohort_month": "2025-06",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.15117171984641864,
+        "ci_low": -0.1717605449056822,
+        "ci_high": -0.123494911646485,
+        "n_status": 390,
+        "n_reference": 3486
+      },
+      {
+        "cohort_month": "2025-07",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.04334753453305154,
+        "ci_low": 0.0021730036973620984,
+        "ci_high": 0.08945013547015485,
+        "n_status": 386,
+        "n_reference": 3263
+      },
+      {
+        "cohort_month": "2025-07",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.14296060673310296,
+        "ci_low": -0.16287722374300564,
+        "ci_high": -0.11694823656008924,
+        "n_status": 435,
+        "n_reference": 3263
+      },
+      {
+        "cohort_month": "2025-08",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.024966973952499943,
+        "ci_low": -0.015389767104281402,
+        "ci_high": 0.06962266752699114,
+        "n_status": 424,
+        "n_reference": 3285
+      },
+      {
+        "cohort_month": "2025-08",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.13127037320111573,
+        "ci_low": -0.15658039905947718,
+        "ci_high": -0.10030482742721866,
+        "n_status": 466,
+        "n_reference": 3285
+      },
+      {
+        "cohort_month": "2025-09",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.026205450733752633,
+        "ci_low": -0.014443947345589507,
+        "ci_high": 0.07107494268677272,
+        "n_status": 424,
+        "n_reference": 3816
+      },
+      {
+        "cohort_month": "2025-09",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.16208724858951185,
+        "ci_low": -0.18446373973506902,
+        "ci_high": -0.13310605593182082,
+        "n_status": 421,
+        "n_reference": 3816
+      },
+      {
+        "cohort_month": "2025-10",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.04582546233350579,
+        "ci_low": 0.004004118676929888,
+        "ci_high": 0.09133277692435296,
+        "n_status": 434,
+        "n_reference": 3830
+      },
+      {
+        "cohort_month": "2025-10",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.18102474838767268,
+        "ci_low": -0.2011142808433411,
+        "ci_high": -0.15521123993795446,
+        "n_status": 468,
+        "n_reference": 3830
+      },
+      {
+        "cohort_month": "2025-11",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.04138293947711483,
+        "ci_low": 0.003991464615795803,
+        "ci_high": 0.08212133812115911,
+        "n_status": 519,
+        "n_reference": 3797
+      },
+      {
+        "cohort_month": "2025-11",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1369918786582318,
+        "ci_low": -0.16145822385275782,
+        "ci_high": -0.10533779310481248,
+        "n_status": 392,
+        "n_reference": 3797
+      },
+      {
+        "cohort_month": "2025-12",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.03963215598453765,
+        "ci_low": 0.002197698088443799,
+        "ci_high": 0.08031059338975534,
+        "n_status": 526,
+        "n_reference": 3844
+      },
+      {
+        "cohort_month": "2025-12",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.13534319959918295,
+        "ci_low": -0.16022050340623262,
+        "ci_high": -0.10407914761659826,
+        "n_status": 432,
+        "n_reference": 3844
+      },
+      {
+        "cohort_month": "2026-01",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.03739290575706622,
+        "ci_low": 0.0008594793006863125,
+        "ci_high": 0.07714287575629683,
+        "n_status": 543,
+        "n_reference": 4163
+      },
+      {
+        "cohort_month": "2026-01",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.14898407896245996,
+        "ci_low": -0.17118342940181347,
+        "ci_high": -0.12045596962757871,
+        "n_status": 444,
+        "n_reference": 4163
+      },
+      {
+        "cohort_month": "2026-02",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.023490587360377957,
+        "ci_low": -0.012483192250453079,
+        "ci_high": 0.06280266497563738,
+        "n_status": 544,
+        "n_reference": 4034
+      },
+      {
+        "cohort_month": "2026-02",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1651309870003605,
+        "ci_low": -0.18470696422079583,
+        "ci_high": -0.14033022985778368,
+        "n_status": 513,
+        "n_reference": 4034
+      },
+      {
+        "cohort_month": "2026-03",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.028401605556156978,
+        "ci_low": -0.008111145679805351,
+        "ci_high": 0.06832403586058201,
+        "n_status": 529,
+        "n_reference": 4540
+      },
+      {
+        "cohort_month": "2026-03",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.15776096533231182,
+        "ci_low": -0.1775770899841918,
+        "ci_high": -0.13323001302942838,
+        "n_status": 575,
+        "n_reference": 4540
+      },
+      {
+        "cohort_month": "2026-04",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.052633975914588516,
+        "ci_low": 0.0085501003005179,
+        "ci_high": 0.10170039731978814,
+        "n_status": 356,
+        "n_reference": 3454
+      },
+      {
+        "cohort_month": "2026-04",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1421652357769474,
+        "ci_low": -0.16407739716856046,
+        "ci_high": -0.11405593705562783,
+        "n_status": 439,
+        "n_reference": 3454
+      },
+      {
+        "cohort_month": "2026-05",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.012029921391463472,
+        "ci_low": -0.033387466656422046,
+        "ci_high": 0.06485055345008592,
+        "n_status": 281,
+        "n_reference": 3236
+      },
+      {
+        "cohort_month": "2026-05",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.14663041446852879,
+        "ci_low": -0.16890755612561917,
+        "ci_high": -0.1170323915350683,
+        "n_status": 377,
+        "n_reference": 3236
+      },
+      {
+        "cohort_month": "2026-06",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.016226793948984963,
+        "ci_low": -0.02687497792641603,
+        "ci_high": 0.06710829913515515,
+        "n_status": 285,
+        "n_reference": 3093
+      },
+      {
+        "cohort_month": "2026-06",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1341216799755524,
+        "ci_low": -0.1541631450704722,
+        "ci_high": -0.10659595635634389,
+        "n_status": 365,
+        "n_reference": 3093
+      },
+      {
+        "cohort_month": "2026-07",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.05749893025246042,
+        "ci_low": 0.011513093007365867,
+        "ci_high": 0.10971307084026717,
+        "n_status": 304,
+        "n_reference": 2952
+      },
+      {
+        "cohort_month": "2026-07",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.1344010562867777,
+        "ci_low": -0.15494531155911698,
+        "ci_high": -0.107039388779491,
+        "n_status": 391,
+        "n_reference": 2952
+      },
+      {
+        "cohort_month": "2026-08",
+        "window_days": 30,
+        "comparison": "Helpful - NMR",
+        "difference": 0.1242666738760172,
+        "ci_low": 0.03523909862290768,
+        "ci_high": 0.226840670378192,
+        "n_status": 94,
+        "n_reference": 787
+      },
+      {
+        "cohort_month": "2026-08",
+        "window_days": 30,
+        "comparison": "Not Helpful - NMR",
+        "difference": -0.12014140031929105,
+        "ci_low": -0.16644161124583193,
+        "ci_high": -0.03870305493810028,
+        "n_status": 78,
+        "n_reference": 787
+      }
+    ],
+    "lockout_rule_month": "2024-04"
+  },
+  "survival": {
+    "horizon_days": 90,
+    "returned_by_day_90": {
+      "Helpful": 0.4374890291709691,
+      "Not Helpful": 0.18964356534300142,
+      "NMR": 0.41151812854118164
+    },
+    "median_time_to_return": "not reached within 90 days for any group"
+  },
+  "logit": {
+    "not_helpful": {
+      "odds_ratio": 0.35795209712280884,
+      "or_ci": [
+        0.3412930256639531,
+        0.3754243251392338
+      ],
+      "marginal_effect_pp": -18.503482605628058,
+      "ame_ci_pp": [
+        -19.355776185411905,
+        -17.65118902584421
+      ]
+    },
+    "helpful": {
+      "odds_ratio": 1.1042311725557468,
+      "or_ci": [
+        1.0706527330204734,
+        1.1388627188238103
+      ],
+      "marginal_effect_pp": 1.7857563975654502,
+      "ame_ci_pp": [
+        1.229712618692971,
+        2.3418001764379293
+      ]
+    }
+  },
+  "lockout": {
+    "rule_date": "2024-04-02",
+    "pre_rule_gap_pp": -6.082109683067166,
+    "pre_rule_gap_ci_pp": [
+      -7.428612584575167,
+      -4.693949668206421
+    ],
+    "post_rule_gap_pp": -17.118891823460626,
+    "post_rule_gap_ci_pp": [
+      -17.56276970740593,
+      -16.656279751592447
+    ],
+    "ever_earned_out_share": {
+      "not_helpful": 0.8936388860343233,
+      "nmr": 0.16756620184709337
+    },
+    "locked_out_now_share_not_helpful": 0.4874113657383619,
+    "pre_rule_locked_before_rule_share_not_helpful": 0.011969021356489086,
+    "single_note_not_helpful_earned_out": 11720,
+    "single_note_not_helpful_median_lag_days": 0.025677083333333333,
+    "single_note_not_helpful_earned_out_within_7_days": 0.8395904436860068
+  },
+  "robustness": {
+    "variations": [
+      {
+        "variation": "baseline (M6a)",
+        "note": "day-7 landmark, 30-day window, one later note",
+        "landmark_days": 7,
+        "window_days": 30,
+        "n_not_helpful": 19153,
+        "n_nmr": 183373,
+        "retention_not_helpful": 0.10572756226178666,
+        "retention_nmr": 0.25569740365266425,
+        "difference_pp": -14.99698413908776,
+        "ci_low_pp": -15.469115918744263,
+        "ci_high_pp": -14.510905694578843
+      },
+      {
+        "variation": "landmark k = 3",
+        "note": "less time for a verdict to arrive before classification",
+        "landmark_days": 3,
+        "window_days": 30,
+        "n_not_helpful": 19223,
+        "n_nmr": 204377,
+        "retention_not_helpful": 0.1253186287260053,
+        "retention_nmr": 0.30758353435073416,
+        "difference_pp": -18.226490562472886,
+        "ci_low_pp": -18.728769871605667,
+        "ci_high_pp": -17.71072893378085
+      },
+      {
+        "variation": "landmark k = 14",
+        "note": "more time for a verdict to arrive before classification",
+        "landmark_days": 14,
+        "window_days": 30,
+        "n_not_helpful": 18876,
+        "n_nmr": 162965,
+        "retention_not_helpful": 0.08571731299004026,
+        "retention_nmr": 0.20310496118798516,
+        "difference_pp": -11.73876481979449,
+        "ci_low_pp": -12.176135110723017,
+        "ci_high_pp": -11.286865371099298
+      },
+      {
+        "variation": "excluding not-misleading first notes",
+        "note": "these notes are structurally barred from Helpful; promoted to a headline robustness number at Gate 1",
+        "landmark_days": 7,
+        "window_days": 30,
+        "n_not_helpful": 11861,
+        "n_nmr": 130821,
+        "retention_not_helpful": 0.11137340865019812,
+        "retention_nmr": 0.251152337927397,
+        "difference_pp": -13.977892927719887,
+        "ci_low_pp": -14.57961468490619,
+        "ci_high_pp": -13.353489718577697
+      },
+      {
+        "variation": "retention = two or more later notes",
+        "note": "a stricter definition of still contributing",
+        "landmark_days": 7,
+        "window_days": 30,
+        "n_not_helpful": 19153,
+        "n_nmr": 183373,
+        "retention_not_helpful": 0.039419412102542684,
+        "retention_nmr": 0.09627916868895639,
+        "difference_pp": -5.685975658641371,
+        "ci_low_pp": -5.985082974478663,
+        "ci_high_pp": -5.371024661694639
+      },
+      {
+        "variation": "cohorts with 90+ days observed after the window",
+        "note": "drops the most recent cohorts entirely",
+        "landmark_days": 7,
+        "window_days": 30,
+        "n_not_helpful": 18090,
+        "n_nmr": 174498,
+        "retention_not_helpful": 0.10945273631840796,
+        "retention_nmr": 0.2596877901179383,
+        "difference_pp": -15.023505379953034,
+        "ci_low_pp": -15.515515984813877,
+        "ci_high_pp": -14.516820733581582
+      }
+    ],
+    "min_difference_pp": -18.226490562472886,
+    "max_difference_pp": -5.685975658641371,
+    "sign_flips": 0
+  }
+}

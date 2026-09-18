@@ -1,0 +1,7 @@
+variation,note,landmark_days,window_days,n_not_helpful,n_nmr,retention_not_helpful,retention_nmr,difference_pp,ci_low_pp,ci_high_pp
+baseline (M6a),"day-7 landmark, 30-day window, one later note",7,30,19153,183373,0.10572756226178666,0.25569740365266425,-14.99698413908776,-15.469115918744263,-14.510905694578843
+landmark k = 3,less time for a verdict to arrive before classification,3,30,19223,204377,0.1253186287260053,0.30758353435073416,-18.226490562472886,-18.728769871605667,-17.71072893378085
+landmark k = 14,more time for a verdict to arrive before classification,14,30,18876,162965,0.08571731299004026,0.20310496118798516,-11.73876481979449,-12.176135110723017,-11.286865371099298
+excluding not-misleading first notes,these notes are structurally barred from Helpful; promoted to a headline robustness number at Gate 1,7,30,11861,130821,0.11137340865019812,0.251152337927397,-13.977892927719887,-14.57961468490619,-13.353489718577697
+retention = two or more later notes,a stricter definition of still contributing,7,30,19153,183373,0.039419412102542684,0.09627916868895639,-5.685975658641371,-5.985082974478663,-5.371024661694639
+cohorts with 90+ days observed after the window,drops the most recent cohorts entirely,7,30,18090,174498,0.10945273631840796,0.2596877901179383,-15.023505379953034,-15.515515984813877,-14.516820733581582
