@@ -11,7 +11,7 @@ everything downstream of it until a human marks it `PASSED`.
 
 ## M0 — Snapshot and conversion
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** nothing
 
 Download the current `notes`, `noteStatusHistory`, and `userEnrollment` into `data/raw/`.
@@ -34,7 +34,7 @@ snapshot date and row counts are in `docs/worklog.md`.
 
 ## M1 — System rules research
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** M0
 **Output:** `docs/system-rules.md`
 
