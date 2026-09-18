@@ -110,10 +110,18 @@ def main() -> None:
         },
         "headline": {
             "statement": (
-                "Contributors whose first note was rated Not Helpful within 7 days were "
-                f"{abs(headline['difference']) * 100:.1f} percentage points less likely to write "
-                f"another note in the following {HEADLINE_WINDOW} days than contributors whose "
-                "first note was still unresolved at day 7."
+                "Contributors whose first note is rejected are far less likely to write "
+                "again than contributors who never get a verdict — but most of that gap is "
+                "X's writing lockout, not discouragement. Before April 2024, when a single "
+                f"rejection could not lock writing ability, the gap was "
+                f"{abs(before['difference_pp']):.0f} points. After, it is "
+                f"{abs(after['difference_pp']):.0f}."
+            ),
+            "chosen_at": "HUMAN GATE 3, 2026-09-18, Kevin Lei",
+            "pooled_difference_pp": headline["difference"] * 100,
+            "non_mechanical_lower_bound_pp": (
+                before["difference_pp"]
+                + nh_lock["pre_rule_earned_out_before_rule"] / nh_lock["pre_rule_authors"] * 100
             ),
             "landmark_days": K,
             "window_days": HEADLINE_WINDOW,
@@ -123,8 +131,9 @@ def main() -> None:
             "n_not_helpful": headline["n_status"],
             "n_nmr": headline["n_reference"],
             "caveat": (
-                "Most of this is the writing lockout, not discouragement. See "
-                "lockout.pre_rule_gap_pp."
+                "The pooled -15.0 pp is mostly mechanical. The defensible discouragement "
+                "figure is non_mechanical_lower_bound_pp, from cohorts that predate the "
+                "lockout rule."
             ),
         },
         "primary": {"retention": primary, "differences": primary_diffs},

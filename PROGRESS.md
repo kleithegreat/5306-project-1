@@ -380,7 +380,7 @@ After this, the report and slide quote `out/results.json` and nothing else.
 
 ## HUMAN GATE 3
 
-**Status:** TODO
+**Status:** PASSED (2026-09-18, Kevin Lei — headline chosen; see `out/results.json` `headline.statement`)
 
 A human reviews `out/results.json`, the four figures, and the one-sentence headline. This
 is the main review point: everything after it is writing.

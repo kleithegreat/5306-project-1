@@ -296,3 +296,21 @@ markdown flags partial months, and fig1 and fig3 drop them.
 `out/results.json` is built by `src/collect_results.py` from `out/tables/` and nothing
 else. Two numbers were hand-typed into it on the first pass and have been replaced by
 values read from `lockout_summary.csv`. The report and slide quote this file only.
+
+---
+
+## HUMAN GATE 3 passed (2026-09-18)
+
+Kevin chose the headline: lead with the mechanism, not the pooled number. It is stored in
+`out/results.json` under `headline.statement` and the report must not paraphrase it into
+something stronger.
+
+One correction to the sentence as chosen. The measured pre-rule gap is 6.1 points; "about
+5" was the part of it that *cannot* be mechanical, since at most 1.2 points could be. The
+stored sentence says 6 points, and `headline.non_mechanical_lower_bound_pp` (−4.9) carries
+the other figure separately. Both belong in the report, doing different jobs.
+
+Nothing was flagged implausible. The lockout section stands, as decided at Gate 1.
+
+Remaining reading caution for M10: retention falls for every group across the period, so
+cohorts are comparable in gap but not in level.
