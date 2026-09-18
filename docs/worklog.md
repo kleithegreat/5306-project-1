@@ -314,3 +314,40 @@ Nothing was flagged implausible. The lockout section stands, as decided at Gate 
 
 Remaining reading caution for M10: retention falls for every group across the period, so
 cohorts are comparable in gap but not in level.
+
+---
+
+## M10 — Report (2026-09-18)
+
+`paper/report.pdf`, 5 pages, acmart/sigconf. Compiles clean: no undefined references, no
+overfull boxes. Every number in the prose comes from `out/results.json`; none was typed by
+hand.
+
+The paper's shape had to change from the plan. The skeleton assumed the lockout rule would
+be a threat-to-validity paragraph. It is instead the middle of the paper, because the
+cohort break at April 2024 is the result. The threats section now carries what is genuinely
+still unresolved — that after April 2024 we cannot separate a contributor who was locked
+from one who had already stopped, and that our pre-rule estimate buys its cleanliness with
+a smaller, older sample.
+
+The cohort figure is set full width (`figure*`). At single-column width the monthly labels
+and the rule annotation were not legible in print, which defeats the one figure that
+carries the argument.
+
+Two citations the bib file had been holding a TODO for are now in, each checked against the
+published record rather than recalled: Halfaker, Kittur and Riedl on reverts and newcomers
+(WikiSym 2011), and Wojcik et al. on the Birdwatch bridging algorithm (arXiv 2210.15723).
+A fourth, Mohammadi et al. on the program's first four years, was added as the closest
+descriptive work.
+
+## M11 — Slide: built by hand (2026-09-18)
+
+Drafted in beamer, then dropped. For a single slide the layout fighting cost more than the
+typesetting was worth — the first build overflowed the frame and the second still needed a
+hand-tuned size budget to fit. Kevin is building it in PowerPoint instead, which is the
+format Canvas wants anyway. `slide/` was deleted rather than left as a stale half-route,
+and `python-pptx` came back out of the flake with it.
+
+The plan of record now points at `fig3_cohorts.pdf` and carries suggested wording drawn
+from `out/results.json`, so the numbers on the slide still trace to the same place as the
+report's.

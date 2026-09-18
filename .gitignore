@@ -10,7 +10,8 @@ data/interim/
 # report quotes, they total under 300 KB, and they cannot be regenerated from a clone
 # without the raw snapshot.
 
-# LaTeX build artifacts
+# LaTeX build artifacts. paper/report.pdf is NOT ignored: it is the submission
+# deliverable, so the repo records exactly what was handed in.
 *.aux
 *.bbl
 *.blg
@@ -20,8 +21,6 @@ data/interim/
 *.nav
 *.snm
 *.toc
-paper/report.pdf
-slide/slide.pdf
 
 __pycache__/
 .venv/

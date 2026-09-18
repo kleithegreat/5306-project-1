@@ -20,7 +20,6 @@
               scipy
               statsmodels
               matplotlib
-              python-pptx
             ]))
             pkgs.duckdb
             pkgs.poppler-utils

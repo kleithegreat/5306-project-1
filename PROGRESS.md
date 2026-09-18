@@ -392,7 +392,7 @@ does the lockout caveat get a section or a paragraph? Mark `PASSED`.
 
 ## M10 — Report
 
-**Status:** TODO
+**Status:** DONE
 **Depends on:** HUMAN GATE 3
 **Output:** `paper/report.pdf`
 
@@ -415,14 +415,20 @@ Writing rules:
 
 **Status:** TODO
 **Depends on:** HUMAN GATE 3
-**Output:** `slide/slide.pdf` and a `.pptx` version
+**Owner:** human
+**Output:** a one-slide `.pptx`
 
-One slide, one minute of talking. The assignment requires **pptx** on Canvas, so the
-beamer source in `slide/slide.tex` is for drafting the layout. Either export the PDF into
-a one-slide pptx or rebuild it in PowerPoint before submitting.
+Built directly in PowerPoint. The LaTeX/beamer route was tried and dropped — for a single
+slide it cost more layout fighting than it saved, and Canvas wants pptx anyway.
 
-Content: the question in one line, one figure (fig3 or fig4), the answer in one sentence,
-and nothing else. No numbers on it that cannot be said aloud in sixty seconds.
+Content: the question in one line, `out/figures/fig3_cohorts.pdf` (the cohort figure —
+the April 2024 break is visible without narration), the answer in one sentence, and the
+three names and NetIDs. No numbers on it that cannot be said aloud in sixty seconds.
+
+Suggested wording, from `out/results.json`: rejected authors are 15 points less likely to
+write again within 30 days, but since April 2024 a single Not Helpful note revokes writing
+ability and 89% of rejected first-timers lose it, usually the same day; before that rule
+the gap was about 5 points.
 
 **Done when:** a pptx exists and someone has read it aloud with a timer.
 
