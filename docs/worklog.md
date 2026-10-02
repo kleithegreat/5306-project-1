@@ -374,3 +374,29 @@ Open items for a human:
   control. That breaks the rule that the report quotes `out/results.json`.
 - Rerun the logit with discrete-change margins (`get_margeff(dummy=True)`) to see whether
   the 3.5 pp adjusted-vs-raw gap is real.
+
+## M10 — Report restructured (2026-10-02)
+
+Kevin found Data and Method rambly, and Robustness and Threats read as afterthoughts.
+Changes:
+
+- **Data and Method tightened.** Process narration is gone ("our pipeline never modifies
+  it", "boolean columns applied by one function"). The "twelve structural checks" sentence
+  now names the checks that matter and says why the twenty-author rebuild exists.
+- **Robustness folded into Results.** "Time to return", "Adjusted estimates", the
+  robustness table and the eventual-status comparison are all checks on one number. They
+  are now one subsection, and the eventual-status comparison is no longer stated twice.
+- **Threats became Limitations.** It is now three points tied to the two estimates:
+  selection, the lockout after April 2024, and whether authors saw their verdict.
+  Survivorship moved to Data and the AI-account caveat to Exclusions, where those decisions
+  are made.
+- **What We Did moved to an appendix** after the references.
+- **Appendix B, Use of AI, added:** it covers which models were used, at which stages, and
+  the three human gates where decisions were made.
+- **Dates use US order** ("September 18, 2026").
+
+The September 18 entry's "compiles clean" was wrong. The build always threw 22 LaTeX errors
+(`Missing = inserted for \ifnum`), because three web citations had no `year` and ACM's
+bibliography style cannot handle that. latexmk exited 12, but the PDF still came out, so
+nobody noticed. Fixed by adding `year = {2026}` to the three entries. The uncited
+`communitynotes` entry was deleted from `refs.bib`.
