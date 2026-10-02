@@ -7,7 +7,22 @@
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAll = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+      tex = pkgs: pkgs.texliveMedium.withPackages (ps: with ps; [
+        acmart latexmk xstring totpages environ trimspaces hyperxmp ifmtarg ncctools
+        libertine inconsolata newtx fontaxes comment preprint cmap kastrup upquote everyshi
+      ]);
     in {
+      apps = forAll (pkgs: {
+        report = {
+          type = "app";
+          program = "${pkgs.writeShellApplication {
+            name = "report";
+            runtimeInputs = [ (tex pkgs) ];
+            text = "latexmk -cd -pdf -interaction=nonstopmode paper/report.tex";
+          }}/bin/report";
+        };
+      });
+
       devShells = forAll (pkgs: {
         default = pkgs.mkShell {
           name = "cn-retention";

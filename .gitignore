@@ -21,6 +21,8 @@ data/interim/
 *.nav
 *.snm
 *.toc
+*.fdb_latexmk
+*.fls
 
 __pycache__/
 .venv/
