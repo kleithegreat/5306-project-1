@@ -351,3 +351,26 @@ and `python-pptx` came back out of the flake with it.
 The plan of record now points at `fig3_cohorts.pdf` and carries suggested wording drawn
 from `out/results.json`, so the numbers on the slide still trace to the same place as the
 report's.
+
+## M10 — Report prose rewritten (2026-09-25)
+
+The report was rewritten for plain academic prose: no bolded claims mid-paragraph, no em
+dashes, no dramatic fragments, and fewer restatements of the lockout story. Structure,
+tables, figures and numbers are unchanged, with one exception. The not-misleading
+coefficient now reads +2.4 pp, matching `out/tables/logit.md`; the draft said +2.5.
+
+The draft explained the adjusted estimate (-18.5 pp) being larger than the raw one (-15.0)
+as cohort fixed effects dropping the early cohorts' smaller gaps. That explanation was
+removed because it does not survive a check. The marginal effect is a derivative, not a
+discrete change (see `logit.md`). For a coefficient this large, a derivative alone roughly
+accounts for the gap: -1.03 x 0.256 x 0.744 = -19.5 pp at the NMR base rate, while the
+discrete change at the same base rate is about -14.6 pp. The paper now reports both numbers
+without an explanation. This is unresolved; see the open items below.
+
+Open items for a human:
+- Several numbers the report quotes are not in `out/results.json`: the 82.7% never-resolved share, the 28,988 pre-May-2022 notes,
+  the 233,514 / 7.6% missing-history notes and their 6.7%→14.1% trend, the 8.6% AI share,
+  the verdict-latency percentiles, the 0.3% NMR pre-rule lockout share, and the +2.4 pp
+  control. That breaks the rule that the report quotes `out/results.json`.
+- Rerun the logit with discrete-change margins (`get_margeff(dummy=True)`) to see whether
+  the 3.5 pp adjusted-vs-raw gap is real.

@@ -34,216 +34,222 @@
 \email{bs835@cornell.edu}
 
 \begin{abstract}
-In X's Community Notes, a contributor's first note can be rated Helpful, rated Not
-Helpful, or sit unresolved in ``Needs More Ratings'' indefinitely. We ask whether an
-explicit rejection predicts departure differently from never receiving a verdict at all,
-a comparison the Wikipedia newcomer literature cannot make. Using a full public snapshot
-of 3.1 million notes and classifying each first note by the status it held seven days
-after it was written, we find that contributors rejected within seven days were
-$15.0$ percentage points less likely to write again within thirty days than contributors
-whose note was still unresolved ($95\%$ CI $-15.5$ to $-14.5$). That figure is mostly not
-discouragement. In April 2024 X began revoking writing ability after a single Not Helpful
-note, and the gap triples across that date, from $6.1$ to $17.1$ points; $89.4\%$ of
-rejected first-time authors have since lost writing ability, typically the same day the
-verdict arrived. Cohorts predating the rule, who could not be locked out, still show a
-gap of about five points. We report that residual as the defensible estimate, and the
-pooled figure as an artifact of a design decision the platform made.
+In X's Community Notes, a contributor's first note can be rated Helpful, rated Not Helpful,
+or left in ``Needs More Ratings'' (NMR) with no verdict. We ask whether a Not Helpful
+verdict on a first note is associated with different retention than no verdict. Studies of
+Wikipedia newcomers cannot make this comparison, because Wikipedia has no equivalent of a
+contribution that never receives a verdict. Using a public snapshot of 3.1 million notes,
+we classify each author's first note by its status seven days after it was written.
+Authors whose first note had been rated Not Helpful by then were $15.0$ percentage points
+less likely to write another note within 30 days than authors whose note was still in NMR
+($95\%$ CI $-15.5$ to $-14.5$). Most of this difference coincides with a platform rule.
+Since April 2024, a single Not Helpful note removes a new author's ability to write, and
+$89.4\%$ of authors whose first note was rated Not Helpful have lost writing ability,
+usually on the day the verdict arrived. The difference is $6.1$ points for cohorts that
+started before the rule and $17.1$ points for cohorts that started after it. In the
+pre-rule cohorts, at least $4.9$ points of the difference cannot be explained by the
+lockout.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-Crowdsourced moderation systems depend on newcomers who stay. Community Notes asks
-volunteers to write short corrections on posts, then has other volunteers rate them. A
-matrix-factorization scorer publishes a note only when contributors who usually disagree
-agree it is helpful~\cite{wojcik2022birdwatch}. The system is deliberately hard to satisfy,
-and most notes never satisfy it.
+Crowdsourced moderation depends on contributors who keep participating after their first
+attempt. In Community Notes, volunteers write short notes that add context to posts on X,
+and other volunteers rate those notes. A matrix-factorization model publishes a note only
+when raters who usually disagree with each other both find it
+helpful~\cite{wojcik2022birdwatch}. The bar is high, and most notes never clear it.
 
-That produces an outcome structure with no clean analogue elsewhere. A first note can be
-rated Helpful, rated Not Helpful, or receive no verdict at all, remaining in ``Needs More
-Ratings'' (NMR) for as long as it exists. Wikipedia's newcomer literature has established
-that early negative feedback predicts departure: reverting a newcomer's first edit
-measurably reduces the chance they edit again~\cite{halfaker2011newbies,halfaker2013rise}.
-But on Wikipedia an edit that is not reverted stands. There is no large population of
-contributors whose first contribution was met with silence in the way that most Community
-Notes contributions are.
+As a result, a first note has three possible outcomes: it is rated Helpful, it is rated Not
+Helpful, or it receives no verdict and stays in Needs More Ratings (NMR) indefinitely.
+Research on Wikipedia has shown that negative early feedback predicts newcomer departure:
+newcomers whose first edits are reverted are less likely to keep
+editing~\cite{halfaker2011newbies,halfaker2013rise}. On Wikipedia, however, an edit that is
+not reverted stays in the article, so there is no large group of newcomers whose first
+contribution received no response. In Community Notes, no response is the most common
+outcome.
 
-\textbf{Our question is whether explicit rejection predicts different retention than
-getting no verdict at all.} Not Helpful versus NMR is the comparison; Helpful is a
-reference point. This matters for design, because a system whose modal outcome is ``no
-decision yet'' is making an implicit choice about how to treat newcomers, and it is not
-obvious whether silence is gentler than rejection or worse.
+Our question is whether an explicit rejection (Not Helpful) is associated with different
+retention than no verdict (NMR). Helpful serves as a reference point. The question matters
+for design. A system in which most contributions never receive a verdict has in effect
+chosen a default response to newcomers, and it is not obvious whether that response is
+better or worse for retention than a rejection.
 
-The answer turned out to depend on something we did not anticipate. Rejected contributors
-are far less likely to return --- but for most of the period we study, rejection does not
-merely discourage a contributor, it mechanically strips their ability to write. Separating
-the two is the substance of this paper, and Section~\ref{sec:lockout} is where we do it.
-The short version: an explicit Not Helpful verdict predicts sharply lower continued
-contribution than no verdict, most of that gap is the platform's writing lockout rather
-than discouragement, and a smaller association of roughly five points survives in cohorts
-that predate the lockout rule.
+We find that a Not Helpful first note predicts much lower retention than an NMR first note.
+A large part of this difference comes from a platform rule we did not know about when we
+began: since April 2024, a Not Helpful first note automatically removes the author's
+ability to write notes. Section~\ref{sec:lockout} separates the part of the difference that
+this rule accounts for from the rest. In cohorts that started before the rule, a difference
+of about five points remains.
 
-\section{The System}
+\section{Background}
 \label{sec:system}
 
-Two mechanics shape everything that follows.
+Two platform rules matter for interpreting our results.
 
-\textbf{Contributors earn the ability to write by rating first.} New contributors may only
-rate. They unlock writing by reaching a Rating Impact of $5$, earned by rating notes before
-they reach a status and matching the status they go on to reach~\cite{communitynoteswriting}.
-This requirement was introduced in September 2022 and applies to every cohort we analyse.
-\emph{Our ``newcomers'' are therefore newcomers to writing only.} Each had already rated
-enough notes, accurately and early enough, to clear a quality bar. This weakens the analogy
-to Wikipedia newcomers, where no comparable filter exists, and it means our population is
-more committed than a typical first-time participant.
+\textbf{Contributors must rate before they can write.} New contributors can only rate
+notes. They gain the ability to write when their Rating Impact reaches $5$. Rating Impact
+increases when a contributor rates a note before it receives a status and the rating
+matches the status the note later receives~\cite{communitynoteswriting}. This requirement
+was introduced in September 2022 and applies to every cohort in our analysis. The authors
+we call newcomers are therefore new to writing only. Each of them has already rated enough
+notes, early and accurately enough, to pass this threshold. They are probably more
+committed than a typical first-time Wikipedia editor, which weakens the comparison to that
+literature.
 
-\textbf{Not Helpful ratings can cost a contributor the ability to write.} A contributor's
-writing ability is locked when three of their last five resolved notes are Not Helpful ---
-or, since 2 April 2024, when \emph{any} note reaches Not Helpful while their Writing Impact
-is zero or negative~\cite{communitynoteswriting}. Writing Impact starts at zero and only
-moves when a note resolves. A first-time author therefore has a Writing Impact of exactly
-zero, so from April 2024 onward a single Not Helpful first note locks writing on its own,
-while a first note sitting in NMR does nothing. The contrast this paper measures is a
-contrast the platform itself acts on. We return to this in Section~\ref{sec:lockout}.
+\textbf{A Not Helpful verdict can remove the ability to write.} A contributor loses writing
+ability when three of their last five resolved notes are rated Not Helpful. Since 2 April
+2024, they also lose it when any of their notes is rated Not Helpful while their Writing
+Impact is zero or negative~\cite{communitynoteswriting}. Writing Impact starts at zero and
+changes only when a note resolves, so a first-time author's Writing Impact is exactly zero.
+From April 2024 onward, a single Not Helpful first note is therefore enough to remove
+writing ability, while an NMR first note has no consequence. In other words, the platform
+itself treats the two outcomes we compare differently. We return to this rule in
+Section~\ref{sec:lockout}.
 
-A note's status is not permanent, and statuses are recomputed periodically, but the public
-data records when each note first left NMR and what it became~\cite{communitynotesranking}.
-That first transition is what we use.
+Statuses are recomputed periodically and can change, but the public data records when each
+note first left NMR and which status it received~\cite{communitynotesranking}. We use that
+first transition.
 
 \section{Related Work}
 
-The closest body of work is on Wikipedia newcomer retention. Halfaker et
-al.~\cite{halfaker2011newbies} show across 400,000 revisions that having an early edit
-reverted is powerfully demotivating, reducing the volume of subsequent work, while still
-improving aggregate quality --- the system gains more from rejecting bad work than it loses
-by driving away the people who did it. The later account of Wikipedia's
-decline~\cite{halfaker2013rise} attributes much of it to increasingly automated and
-impersonal rejection of newcomers.
+The most relevant prior work studies how Wikipedia retains its newcomers. Halfaker et
+al.~\cite{halfaker2011newbies} analyzed 400,000 revisions and found that having early edits
+reverted strongly reduces how much newcomers contribute afterward, although reverting also
+improves the overall quality of the encyclopedia. A later study~\cite{halfaker2013rise}
+attributes much of Wikipedia's decline to the increasingly automated and impersonal
+rejection of newcomers' edits.
 
-Community Notes differs in two ways that make it a useful contrast. Rejection is the output
-of a scoring rule rather than a person's judgment, so a rejected contributor has no editor
-to argue with and no revert summary to read. And the modal outcome is neither acceptance
-nor rejection but silence, which Wikipedia does not produce at comparable scale. Recent
-descriptive work covers the program's first four years, including contributor activity and
-rating behaviour~\cite{mohammadi2025birdwatch}, but not, to our knowledge, the retention
-consequences of the no-verdict condition.
+Community Notes differs from Wikipedia in two ways that matter for our question. First,
+rejection comes from a scoring algorithm rather than from another editor, so a rejected
+author has no one to respond to and no explanation to read. Second, the most common outcome
+is no verdict at all, which Wikipedia does not produce at a comparable scale. Mohammadi et
+al.~\cite{mohammadi2025birdwatch} describe the program's first four years, including
+contributor activity and rating behavior. To our knowledge, no prior work has examined how
+the absence of a verdict relates to retention.
 
 \section{Data}
 \label{sec:data}
 
-We use the public Community Notes bulk downloads~\cite{communitynotesdata}, snapshot dated
-\textbf{18 September 2026}. Each snapshot is cumulative back to 2021, so one is enough.
-Upstream keeps roughly a week of snapshots and older dates return 404, so the archive we
-took locally is the only copy; nothing in our pipeline writes to it.
+We use the public Community Notes data downloads~\cite{communitynotesdata}, from the
+snapshot released on \textbf{18 September 2026}. Each snapshot covers all notes back to
+2021, so one snapshot is sufficient. The download site keeps only about a week of
+snapshots, so our local copy is the only one available to us, and our pipeline never
+modifies it.
 
 \begin{sloppypar}
-Three tables: \texttt{notes} ($3{,}086{,}867$ rows), \texttt{noteStatusHistory}
-($3{,}290{,}294$ rows), and \texttt{userEnrollment} ($1{,}490{,}672$ rows). The project
-rests on two fields in the second: \texttt{firstNonNMRStatus}, the first real verdict a
-note received, and \texttt{timestampMillisOf\-FirstNonNMRStatus}, when it arrived. Both
-are
-empty when a note never left NMR, which is true of $82.7\%$ of notes.
+The snapshot contains three tables: \texttt{notes} ($3{,}086{,}867$ rows),
+\texttt{noteStatusHistory} ($3{,}290{,}294$ rows), and \texttt{userEnrollment}
+($1{,}490{,}672$ rows). Our analysis relies mainly on two fields in
+\texttt{noteStatusHistory}: \texttt{firstNonNMRStatus}, the first status other than NMR
+that a note received, and \texttt{timestampMillisOf\-FirstNonNMRStatus}, the time it
+received that status. Both fields are empty for notes that never left NMR, which is the
+case for $82.7\%$ of notes.
 \end{sloppypar}
 
-Snapshots contain only notes created up to 48 hours before release, so the effective data
-cutoff is \textbf{16 September 2026}, two days before the snapshot date. All censoring uses
-the cutoff, not the snapshot date.
+A snapshot includes only notes created at least 48 hours before its release, so our data
+ends on \textbf{16 September 2026}. We use this cutoff, not the snapshot date, for all
+censoring.
 
-We did not use the \texttt{ratings} table, which runs to tens of gigabytes and answers a
-different question --- we need note outcomes, not individual ratings --- or the text of the
-annotated posts, which is not public.
+We did not use the \texttt{ratings} table, which is tens of gigabytes and records
+individual ratings rather than note outcomes. We also did not use the text of the posts
+being annotated, which is not publicly available.
 
-\textbf{Author identifier stability.} Our analysis assumes a participant identifier means
-the same person across releases. Because snapshots expire, this can only be checked while a
-second one is still downloadable, so we did it: comparing \texttt{noteStatusHistory} across
-the 18 and 16 September releases gives $3{,}282{,}773$ notes present in both and
-\textbf{zero} author-identifier mismatches.
+\textbf{Stability of author identifiers.} Our analysis assumes that an author identifier
+refers to the same person in every release. Because snapshots expire, this can only be
+checked while a second snapshot is still available. We compared
+\texttt{noteStatusHistory} in the 18 September and 16 September releases. Of
+$3{,}282{,}773$ notes present in both, none had a different author identifier.
 
-\textbf{Two data problems we found rather than assumed.} First,
-\texttt{firstNonNMRStatus} is not merely sparse before May 2022, it is \emph{empty}: not one
-of the $28{,}988$ notes created before then has a recorded verdict. Those cohorts are
-$100\%$ NMR by construction, not by outcome. Second, $233{,}514$ notes ($7.6\%$) have no
-\texttt{noteStatusHistory} row at all, spread across 28 months from March 2024 onward at a
-rate rising from $6.7\%$ to $14.1\%$. Those notes have \emph{no recorded outcome}, which is
-not the same as never leaving NMR; treating them as NMR would inflate the comparison group
-by a growing amount and manufacture a cohort trend. Both drive exclusions in
+\textbf{Data quality problems.} We found two problems in the data. First,
+\texttt{firstNonNMRStatus} is empty for every note created before May 2022 ($28{,}988$
+notes). Cohorts from that period appear to be $100\%$ NMR because verdicts were not
+recorded, not because the notes went unresolved. Second, $233{,}514$ notes ($7.6\%$) have
+no row in \texttt{noteStatusHistory}. These notes span 28 months starting in March 2024,
+and their share of each month's notes rises from $6.7\%$ to $14.1\%$ over that period. The
+outcome of these notes is unknown, which is different from never leaving NMR. Counting them
+as NMR would add a growing number of notes to the comparison group and create a spurious
+trend across cohorts. Both problems lead to exclusions, described in
 Section~\ref{sec:exclusions}.
 
 \section{Method}
 \label{sec:method}
 
-\subsection{Contributor-level dataset}
+\subsection{Contributor table}
 
-We join \texttt{notes} to \texttt{noteStatusHistory} on note identifier and emit one row per
-author: their first note, its outcome and timing, their next note, their cohort month, and
-first-note features (classification, whether it cites a URL, length, reason tags). A first
-note is the author's earliest note in the snapshot, ties broken by note identifier so the
-ordering is total and the build deterministic. Since snapshots are cumulative back to 2021,
-that is genuinely their first note. The table has $343{,}176$ rows, one per distinct author
-in \texttt{notes}.
+We join \texttt{notes} to \texttt{noteStatusHistory} on note ID and build a table with one
+row per author. Each row records the author's first note, its outcome and when the outcome
+arrived, the time of the author's next note, the month of the first note (the author's
+cohort), and features of the first note: its classification, whether it cites a URL, its
+length, and its reason tags. An author's first note is their earliest note in the snapshot,
+with ties broken by note ID so that the ordering is deterministic. Because the snapshot goes
+back to 2021, this is the author's actual first note. The table has $343{,}176$ rows, one
+for each distinct author in \texttt{notes}.
 
-Before using it we validated it against the raw files: twelve structural checks, plus twenty
-randomly sampled authors rebuilt field by field from the raw TSVs by a separate Python
-parser that does not go through our query engine. All twelve checks and all twenty authors
-matched.
+We validated the table against the raw files with twelve structural checks. We also chose
+twenty authors at random and rebuilt each of their rows from the raw TSV files with a
+separate Python parser that does not use our query engine. All twelve checks passed, and
+all twenty rows matched.
 
 \subsection{Landmark classification}
 \label{sec:landmark}
 
-This is the central methodological choice. \textbf{We classify each first note by the status
-it held seven days after it was written}, not by the status it eventually reached.
+Our most important methodological choice is to classify each first note by \textbf{its
+status seven days after it was written}, rather than by the status it eventually received.
 
-Classifying by eventual status uses information that did not exist when the contributor
-decided whether to come back. A note that sat in NMR for three months and then turned Not
-Helpful was, for the entire period in which the contributor was deciding, a note with no
-verdict. Worse, the eventual-status NMR group is partly a function of when the snapshot was
-taken rather than of anything the contributor experienced.
+A note's eventual status can reflect events that had not happened when the author was
+deciding whether to write again. A note that stayed in NMR for three months before being
+rated Not Helpful had no verdict during the period when its author was making that
+decision. In addition, whether a note is still in NMR at the end of the data depends partly
+on when the snapshot was taken.
 
-Seven days is generous. From 2023 onward, the median first note reaches a verdict in under a
-third of a day and the ninetieth percentile inside two days, so a seven-day landmark
-captures nearly every verdict that will ever arrive. We also drop authors who wrote again
-\emph{before} day seven: no feedback could have reached them, so their return says nothing
-about how they reacted to one. A verdict landing after day seven counts as NMR here, by
-design.
+Seven days is enough time for nearly all verdicts to arrive. For first notes written in 2023
+or later, the median time to a verdict is under eight hours, and the 90th percentile is
+under two days. We exclude authors who wrote a second note before day seven, because they
+returned before the point at which we classify outcomes, so their return cannot be a
+response to the day-7 status. Notes that receive a verdict after day seven are classified
+as NMR.
 
 \subsection{Retention and censoring}
 
-Retention is whether the author wrote another note between the landmark and the end of a
-30-, 60-, or 90-day window. An author enters a window only if the entire window closes
-before the data cutoff, so each window has its own sample size. Proportions carry Wilson
-$95\%$ intervals and differences carry Newcombe hybrid-score intervals.
-
-Section~\ref{sec:survival} reports Kaplan-Meier curves instead, which censor rather than
-discard, as a check that the windowing is not doing the work.
+An author counts as retained if they wrote another note between day seven and the end of a
+30-, 60-, or 90-day window. An author is included in a window only if the whole window ends
+before the data cutoff, so the sample size differs across windows. We report proportions
+with Wilson $95\%$ confidence intervals and differences with Newcombe hybrid-score
+intervals. To check that this windowing does not drive the results,
+Section~\ref{sec:survival} also reports Kaplan--Meier estimates, which censor incomplete
+observations instead of dropping them.
 
 \subsection{Exclusions}
 \label{sec:exclusions}
 
-Exclusions are boolean columns applied in one place, never deleted rows. Of $343{,}176$
-authors we keep $322{,}094$:
+Each exclusion is a boolean column applied by a single function, so no rows are deleted.
+Of $343{,}176$ authors, $322{,}094$ remain after the following exclusions:
 
 \begin{itemize}
-  \item $5{,}052$ authors in cohorts before January 2023, where verdicts are absent or were
-        rewritten by a January 2023 rescoring of all historical notes.
-  \item $15{,}997$ authors whose first note has no status-history row, whose outcome is
-        unknown rather than absent.
-  \item $35$ AI note-writer accounts, identified by an enrollment state prefixed
-        \texttt{api}. They are negligible as authors but wrote $8.6\%$ of all notes, and an
-        AI that stops writing has not given up.
+  \item $5{,}052$ authors whose first note was written before January 2023. For these
+        cohorts, verdicts are either missing or were changed when X rescored all historical
+        notes in January 2023.
+  \item $15{,}997$ authors whose first note has no status-history row, so its outcome is
+        unknown.
+  \item $35$ AI note-writer accounts, identified by an enrollment state beginning with
+        \texttt{api}. These accounts are few but wrote $8.6\%$ of all notes, and an
+        automated account that stops writing does not tell us anything about people
+        leaving.
 \end{itemize}
 
-Applying the landmark leaves $230{,}588$ authors observable at day seven, of whom
-$227{,}324$ have a fully observed 30-day window.
+Applying the day-7 landmark leaves $230{,}588$ authors, of whom $227{,}324$ have a complete
+30-day window.
 
 \section{Results}
 \label{sec:results}
 
-\textbf{Contributors whose first note was rated Not Helpful within seven days were $15.0$
-percentage points less likely to write another note in the following thirty days than
-contributors whose first note was still unresolved} ($95\%$ CI $-15.5$ to $-14.5$;
-$n=19{,}153$ Not Helpful and $183{,}373$ NMR). Section~\ref{sec:lockout} explains why that
-number is mostly not what it appears to be.
+Authors whose first note was rated Not Helpful within seven days were $15.0$ percentage
+points less likely than authors whose first note was still in NMR to write another note in
+the following 30 days ($95\%$ CI $-15.5$ to $-14.5$; $n=19{,}153$ Not Helpful and
+$183{,}373$ NMR). Section~\ref{sec:lockout} shows that most of this difference coincides
+with the writing lockout.
 
 \begin{table}[t]
   \caption{Retention by first-note outcome at day 7. Wilson 95\% intervals.}
@@ -266,94 +272,103 @@ number is mostly not what it appears to be.
   \label{fig:retention}
 \end{figure}
 
-\subsection{The Not Helpful versus no-verdict comparison}
+\subsection{Not Helpful versus no verdict}
 
-Table~\ref{tab:primary} and Figure~\ref{fig:retention} show the answer to the paper's
-question, and the shape is asymmetric. Rejection is associated with a large deficit:
-$-15.0$ points at thirty days, widening to $-22.1$ at ninety. Approval is associated with
-almost nothing: $+2.1$ points at thirty days and $+2.4$ at ninety. Getting no verdict at all
-is, on these numbers, nearly as good as being told your note was helpful.
+Table~\ref{tab:primary} and Figure~\ref{fig:retention} show that the two outcomes differ
+from NMR by very different amounts. A Not Helpful first note is associated with much lower
+retention than an NMR first note: $15.0$ points lower at 30 days and $22.1$ points lower at
+90 days. A Helpful first note is associated with only slightly higher retention than an NMR
+first note: $2.1$ points higher at 30 days and $2.4$ points higher at 90 days. Authors who
+received no verdict returned at nearly the same rate as authors whose notes were rated
+Helpful.
 
-\textbf{The specification matters more than we expected.} Computed the obvious way ---
-labelling each note with whatever verdict it eventually received and measuring retention from
-the note itself --- the same data gives $-21.1$ points, overstating the difference by $6.1$
-points. Most of that comes from keeping the authors who wrote again within the week, the most
-engaged people in the sample, without asking whether any feedback had reached them. We hold
-censoring identical between the two so the comparison isolates the landmark. That the easy
-specification is wrong by forty percent is itself worth reporting.
+A simpler analysis gives a larger difference. If each note is labeled with its eventual
+status and retention is measured from the day the note was written, the difference is
+$21.1$ points instead of $15.0$, about 40\% larger. Most of the extra difference comes from
+including authors who wrote again within the first week. These are the most active authors
+in the data, and they returned before the point at which we classify outcomes. Both
+analyses use the same censoring rules, so the gap between them comes from the landmark
+alone.
 
-\subsection{Cohorts, and a structural break}
+\subsection{Cohorts and the April 2024 lockout rule}
 \label{sec:lockout}
 
-Splitting by cohort month changes the finding. Figure~\ref{fig:cohort} shows the gap is small
-and often indistinguishable from zero through 2023 and early 2024, then collapses. Not Helpful
-retention falls from around $28\%$ in February 2024 to $9.6\%$ in April 2024 and stays in a
-$3$--$8\%$ band thereafter, while the other two groups drift down together and far more
-gently. Pooled either side of that date, the Not Helpful minus NMR gap is $-6.1$ points before
-April 2024 ($95\%$ CI $-7.4$ to $-4.7$) and $-17.1$ points after ($-17.6$ to $-16.7$).
+Figure~\ref{fig:cohort} shows the difference by cohort month. Through 2023 and early 2024,
+the difference is small and often not distinguishable from zero. It then widens sharply.
+Thirty-day retention for Not Helpful authors falls from about $28\%$ in February 2024 to
+$9.6\%$ in April 2024 and stays between $3\%$ and $8\%$ afterward, while retention for the
+other two groups declines together and much more gradually. Pooling the cohorts on each
+side of April 2024, the Not Helpful minus NMR difference is $-6.1$ points before
+($95\%$ CI $-7.4$ to $-4.7$) and $-17.1$ points after ($-17.6$ to $-16.7$).
 
-April 2024 is when X began locking writing ability on a single Not Helpful note
-(Section~\ref{sec:system}). The enrollment data confirms the mechanism directly:
-\textbf{$89.4\%$ of rejected first-time authors have lost writing ability at least once},
-against $16.8\%$ of the no-verdict group, and $48.7\%$ are still locked out. Among rejected
-authors who wrote exactly one note and have been locked out, the median gap between the
-verdict arriving and the lockout is $0.03$ days and $84.0\%$ were locked within a week. The
-verdict and the lockout are effectively the same event.
+April 2024 is when X began removing writing ability after a single Not Helpful note
+(Section~\ref{sec:system}). The enrollment data shows the rule in operation. Of authors
+whose first note was rated Not Helpful, $89.4\%$ have lost writing ability at least once,
+compared with $16.8\%$ of authors whose first note stayed in NMR, and $48.7\%$ are still
+unable to write. Among Not Helpful authors who wrote only one note and later lost writing
+ability, the median time between the verdict and the loss of writing ability is $0.03$ days
+(under an hour), and $84.0\%$ lost it within a week. For most of these authors, the verdict
+and the loss of writing ability happened at essentially the same time.
 
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.82\textwidth]{../out/figures/fig3_cohorts.pdf}
   \caption{30-day retention by cohort month and first-note outcome, with 95\% intervals. The
-  dashed line marks April 2024, when a single Not Helpful note began locking writing ability.
-  Cohort months too recent for a 30-day window to close before the data cutoff are omitted.}
+  dashed line marks April 2024, when a single Not Helpful note began to remove writing
+  ability. Cohort months too recent for a 30-day window to close before the data cutoff are
+  omitted.}
   \label{fig:cohort}
 \end{figure*}
 
-\textbf{This does not reduce the finding to zero.} The enrollment field records only a
-contributor's most recent lockout, so a 2023 author's could have occurred years later under
-the new rule. Counting only lockouts stamped before the rule date, just $1.2\%$ of pre-rule
-rejected authors had lost writing ability when it mattered, against $0.3\%$ of the no-verdict
-group. Those cohorts really were free to keep writing, and they still show a $6.1$-point gap.
-Even if every locked contributor would otherwise have returned, at most $1.2$ points of that
-is mechanical, leaving \textbf{roughly five points that is not}.
+The lockout does not explain the whole difference. The enrollment table records only a
+contributor's most recent loss of writing ability, so an author who started in 2023 may
+have lost it years later under the new rule. Counting only losses recorded before 2 April
+2024, $1.2\%$ of pre-rule Not Helpful authors had lost writing ability during the period
+we study, compared with $0.3\%$ of pre-rule NMR authors. Nearly all pre-rule authors were
+still able to write, and their difference is still $6.1$ points. Even if every author who
+lost writing ability would otherwise have returned, the lockout can account for at most
+$1.2$ points of that difference, which leaves at least $4.9$ points that it does not
+explain.
 
-We therefore report two numbers with different jobs. The pooled $-15.0$ points describes what
-happens to rejected newcomers in Community Notes today, and is mostly the platform's lockout
-doing what it was designed to do. The $-4.9$ points from pre-rule cohorts is our estimate of
-the association between rejection and departure absent that mechanism.
+We therefore report two estimates that answer different questions. The pooled difference of
+$15.0$ points describes what happens today to newcomers whose first note is rated Not
+Helpful, and most of it reflects the lockout rule. The difference of $4.9$ points in
+pre-rule cohorts is our estimate of the association between rejection and not returning
+when the lockout does not apply.
 
 \subsection{Time to return}
 \label{sec:survival}
 
-Kaplan-Meier estimates agree with the windowed proportions and rule out the windowing as an
-artifact. Follow-up starts at the day-7 landmark, the event is the author's next note, and
-authors who never return are censored at the data cutoff rather than dropped. By day ninety
-$43.7\%$ of Helpful authors, $41.2\%$ of NMR authors and $19.0\%$ of Not Helpful authors have
-returned, within half a point of the windowed figures in Table~\ref{tab:primary}. No group
-reaches a median time to return within ninety days --- most contributors never write a second
-note at all.
+Kaplan--Meier estimates agree with the windowed proportions, so the windowing is not
+driving the results. Follow-up starts at day seven, the event is the author's next note,
+and authors who have not written again are censored at the data cutoff instead of being
+dropped. By day 90, $43.7\%$ of Helpful authors, $41.2\%$ of NMR authors, and $19.0\%$ of
+Not Helpful authors had written another note, all within half a point of the windowed
+estimates in Table~\ref{tab:primary}. Because fewer than half of the authors in every group
+return within 90 days, no group reaches a median time to return in that period.
 
 \subsection{Adjusted estimates}
 
-A logistic regression of 30-day retention on day-7 status, with cohort-month fixed effects and
-first-note controls (classification, URL presence, length, and reason tags), gives an odds
-ratio of $0.36$ for Not Helpful ($95\%$ CI $0.34$--$0.38$), an average marginal effect of
-$-18.5$ points. That is $3.5$ points larger than the raw difference, not smaller. The reason is
-Section~\ref{sec:lockout}: cohort fixed effects make the comparison within cohort, which
-removes the early cohorts' smaller gaps from the average. We report both rather than the more
-convenient one. One control is worth noting: a first note asserting a post is \emph{not}
-misleading is associated with $+2.5$ points of retention once status is held constant, despite
-such notes being structurally ineligible for Helpful status and reaching Not Helpful far more
+We also fit a logistic regression of 30-day retention on day-7 status, with fixed effects
+for cohort month and controls for features of the first note (classification, URL presence,
+length, and reason tags). The odds ratio for Not Helpful is $0.36$ ($95\%$ CI
+$0.34$--$0.38$), which corresponds to an average marginal change in predicted retention of
+$-18.5$ points. The adjusted estimate is $3.5$ points larger than the unadjusted
+difference, and we report both. Among the controls, a first note stating that a post is
+\emph{not} misleading is associated with $2.4$ points higher retention when status is held
+constant, even though such notes cannot be rated Helpful and are rated Not Helpful much more
 often.
 
 \section{Robustness}
 
-Table~\ref{tab:robust} reruns the primary comparison under each variation. The difference is
-negative in all six, ranging from $-5.7$ to $-18.2$ points against a baseline of $-15.0$, with
-no sign flips. Moving the landmark trades sample composition against classification accuracy in
-the expected direction. The stricter retention definition compresses the difference because base
-rates fall for every group. Nothing here is close to the sensitivity that matters, which is the
-cohort split.
+Table~\ref{tab:robust} repeats the main comparison under five alternative specifications.
+The Not Helpful minus NMR difference is negative in every case, ranging from $-5.7$ to
+$-18.2$ points, compared with $-15.0$ in the baseline. Moving the landmark changes the
+estimate in the expected direction. An earlier landmark keeps more authors in the sample but
+classifies as NMR some notes that later receive a verdict, and a later landmark does the
+reverse. Requiring two or more later notes reduces the difference because it lowers
+retention in every group. None of these changes is as large as the difference between the
+pre-rule and post-rule cohorts.
 
 \begin{table}[t]
   \caption{Not Helpful minus NMR difference at 30 days under each variation.}
@@ -369,7 +384,7 @@ cohort split.
     Retention = two or more later notes   & $-5.7$ pp \\
     Cohorts with 90+ days after the window& $-15.0$ pp \\
     \midrule
-    Naive eventual-status specification   & $-21.1$ pp \\
+    Eventual-status specification         & $-21.1$ pp \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -377,85 +392,92 @@ cohort split.
 \section{Threats to Validity}
 \label{sec:threats}
 
-\textbf{Writing lockouts.} The largest threat, and the one that reshaped the paper. We have
-bounded it in Section~\ref{sec:lockout} rather than dismissed it, but the bound is one-sided.
-\texttt{userEnrollment} carries one current state per contributor with no history, so after
-April 2024 we cannot separate a contributor who was locked at the moment they would have written
-from one who had already lost interest. An author who was locked, earned back in, and left anyway
-is indistinguishable from one never locked. Our pre-rule estimate sidesteps this by using a period
-when the mechanism did not exist, at the cost of a smaller and older sample.
+\textbf{Writing lockouts.} This is the largest threat to our interpretation.
+Section~\ref{sec:lockout} bounds its contribution in pre-rule cohorts, but after April 2024
+we cannot separate it from other reasons for leaving. \texttt{userEnrollment} records only
+each contributor's current state, with no history. We therefore cannot distinguish an
+author who was unable to write when they would have returned from one who had already
+decided to stop. An author who lost writing ability, regained it, and then left looks the
+same as one who never lost it. The pre-rule estimate avoids this problem by using a period
+when the rule did not exist, at the cost of a smaller and older sample.
 
-\textbf{Selection.} We did not assign anyone to Not Helpful or NMR. A weak first note plausibly
-produces both a bad verdict and a contributor who was leaving regardless. Controlling for
-observable note features is not the same as solving this, and we claim association throughout.
+\textbf{Selection.} We did not assign authors to outcomes. A weak first note may both be
+rated Not Helpful and come from an author who was likely to leave anyway. Controlling for
+observable features of the note does not resolve this, so we describe all results as
+associations.
 
-\textbf{Notification.} We do not observe whether a contributor ever saw their note's status. The
-landmark assumes seven days is enough for feedback to arrive, which is a claim about the system's
-notifications that we cannot verify from public data.
+\textbf{Notification.} We cannot observe whether an author saw their note's status. The
+landmark assumes that seven days is enough time for an author to learn of a verdict, which
+depends on X's notifications and cannot be verified from public data.
 
-\textbf{Survivorship.} Deleted notes disappear from \texttt{notes} while remaining in
-\texttt{noteStatusHistory}, so our author population is drawn from surviving notes only.
+\textbf{Survivorship.} Deleted notes are removed from \texttt{notes} but remain in
+\texttt{noteStatusHistory}, so our authors are drawn only from notes that were not deleted.
 
-\textbf{Automated authors.} AI note writers entered the system in 2025 and are excluded, but
-only via current enrollment state; an account since moved to another state would be invisible.
+\textbf{Automated authors.} AI note writers joined in 2025. We exclude them based on their
+current enrollment state, so an AI account that has since moved to a different state would
+be missed.
 
 \section{What We Did}
 \label{sec:work}
 
-Four weeks, three people, and the work was mostly not the statistics.
+Most of our four weeks went into understanding the system and the data rather than into
+the statistical analysis.
 
-The first week went on establishing what the system actually does, which turned out to be the
-highest-value thing we did. Reading the scoring source alongside the published guide is what
-surfaced the April 2024 lockout rule and, critically, its \emph{date} --- which is what later let
-us separate the mechanism from the behaviour instead of writing a paragraph apologising for the
-confound. The guide's rendered pages are client-side rendered and return nothing to a plain
-fetch, so we worked from the markdown sources the site is built from.
+In the first week we worked out how the system operates. Reading the scoring source code
+alongside the published guide is how we found the April 2024 lockout rule and the date it
+took effect. Knowing the date is what made the before-and-after comparison in
+Section~\ref{sec:lockout} possible; without it, we could only have listed the lockout as a
+confound. The guide's web pages are rendered client-side and return no content to a plain
+HTTP request, so we worked from the Markdown files the site is built from.
 
-The second week went on the data, and produced two stops. We found that first-verdict fields are
-entirely empty before May 2022, which killed the 2021--2022 cohorts outright, and that $7.6\%$ of
-notes have no status-history row at all, which is undocumented and would have silently inflated
-our comparison group at a rate that grows over time. Both were flagged and escalated rather than
-patched around, which cost a day each and was worth it. We also verified author-identifier
-stability across two releases inside the one-week window during which that check is possible at
-all.
+In the second week we built the contributor table and found the two data problems described
+in Section~\ref{sec:data}. Verdict fields are empty before May 2022, which ruled out the
+2021 and 2022 cohorts. And $7.6\%$ of notes have no status-history row, which is not
+documented and would have added a growing number of unknown outcomes to the NMR group. We
+stopped to investigate each problem before continuing, which took about a day each. The
+same week, we checked that author identifiers were stable across two releases, which is
+only possible while both releases can still be downloaded.
 
-Infrastructure bit in small ways worth recording. The Python environment is a pinned Nix flake;
-an initial attempt with \texttt{uv} failed because its downloaded interpreter is dynamically
-linked against a loader that does not exist on NixOS. The survival library we planned to use does
-not build against the pinned package set, so Kaplan-Meier and the log-rank test are computed with
-\texttt{statsmodels} instead. Loading the tables with default CSV quoting silently corrupts rows,
-because note text contains bare double quotes.
+Several infrastructure problems also took time. Our Python environment is a pinned Nix
+flake. Our first attempt used \texttt{uv}, which failed because its downloaded Python
+interpreter is dynamically linked against a loader that does not exist on NixOS. The
+survival-analysis library we planned to use did not build with the pinned packages, so we
+computed the Kaplan--Meier estimates and the log-rank test with \texttt{statsmodels}.
+Reading the tables with default CSV quoting silently corrupted rows, because some note text
+contains unescaped double quotes.
 
-Two mistakes we caught ourselves. Drawing the cohort figure revealed that the most recent month
-spikes in every series, because only authors who joined in the first days of that month can have a
-30-day window close before the cutoff --- a biased slice, not a cohort. We fixed it in the analysis
-with an explicit completeness flag rather than trimming the chart. And our first pass at the
-regression writeup claimed the adjusted and raw estimates agreed, when they differ by $3.5$ points;
-the honest explanation of \emph{why} they differ turned out to be more informative than the
-agreement would have been.
+We also caught two of our own mistakes. The first version of the cohort figure showed a
+spike in every series in the most recent month. Only authors who joined in the first few
+days of that month had a 30-day window that closed before the cutoff, so that month's
+estimate came from a biased subset of authors. We fixed this in the analysis with an
+explicit completeness flag rather than by trimming the chart. Second, our first draft of
+the regression results said the adjusted and unadjusted estimates agreed, when they differ
+by $3.5$ points.
 
-Reproducibility was a constraint throughout rather than an afterthought. The contributor table was
-frozen after validation and never rebuilt. Exclusions live in one function. Every number in this
-paper is generated into a single JSON file that the paper quotes, so no figure here was typed by
-hand.
+We kept the pipeline reproducible throughout. The contributor table was frozen after
+validation and never rebuilt, all exclusions are applied by one function, and the numbers
+in this report come from files generated by the analysis scripts rather than from manual
+calculation.
 
 \section{Conclusion}
 
-An explicit Not Helpful verdict on a first note predicts substantially lower continued
-contribution than no verdict at all --- $15.0$ points at thirty days --- but most of that is X's
-writing lockout rather than contributors choosing to leave. In cohorts predating the lockout rule,
-where rejection carried no mechanical penalty, the association is about five points. Rejection
-discourages, modestly; the platform then removes the option entirely, which is what the pooled
-number mostly measures.
+A Not Helpful verdict on a first note predicts much lower continued contribution than no
+verdict: $15.0$ points lower at 30 days. Most of this difference coincides with X's writing
+lockout. In cohorts that started before the lockout rule, when a rejection did not remove
+the ability to write, the difference is about five points. Rejection on its own is
+associated with a modest drop in retention, and the lockout accounts for most of the rest
+of the pooled difference.
 
-The result we did not expect is the asymmetry. Approval buys almost nothing: contributors told
-their note was Helpful returned only about two points more often than contributors told nothing at
-all. For a system whose modal outcome is silence, that is reassuring in one way and troubling in
-another. Silence is not experienced as rejection, so the $82.7\%$ of notes that never resolve are
-not quietly driving people away. But the system also gets very little retention benefit from
-telling someone they did well. If Community Notes wants newcomers to stay, the lever is not
-faster verdicts --- it is reconsidering whether a first rejection should cost someone the ability
-to try again, given that $89.4\%$ of rejected first-time authors lose it, usually the same day.
+We did not expect how little a Helpful verdict adds. Authors whose first note was rated
+Helpful returned only about two points more often than authors who received no verdict.
+This has two implications for a system in which $82.7\%$ of notes never receive a verdict.
+Receiving no verdict is not associated with the drop in retention that follows a
+rejection, so the large share of unresolved notes does not appear to be costing the system
+contributors. But a Helpful verdict is also associated with little additional retention.
+Our results therefore give little reason to expect faster verdicts to retain more new
+authors. A more relevant design question is whether a first rejection should remove the
+ability to write at all, given that $89.4\%$ of authors whose first note is rated Not
+Helpful lose that ability, usually on the same day.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{refs}
