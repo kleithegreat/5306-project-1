@@ -194,11 +194,18 @@ that arrive after day seven count as NMR. Authors who wrote a second note before
 are excluded, because they returned before the status we classify existed.
 
 \subsection{Retention and censoring}
+\label{sec:retention}
 
 An author is retained if they write another note between day seven and the end of a 30-,
 60-, or 90-day window. Each window includes only authors whose window closes before the data
-cutoff, so sample sizes differ across windows. Proportions have Wilson $95\%$ intervals and
-differences have Newcombe hybrid-score intervals.
+cutoff, so sample sizes differ across windows.
+
+Each percentage and each difference between percentages comes with a $95\%$ confidence
+interval (CI). The CI is the range the true value plausibly falls in, given how many authors
+the number is based on: small groups give wide ranges, large groups narrow ones. When the CI
+for a difference excludes zero, chance alone is an unlikely explanation for the gap. We used
+the Wilson method for single percentages and the Newcombe method for differences, two
+standard methods that stay accurate for small groups and for percentages near 0 or 100.
 
 \subsection{Exclusions}
 \label{sec:exclusions}
@@ -227,7 +234,7 @@ $183{,}373$ NMR). Section~\ref{sec:lockout} shows that most of this difference c
 with the writing lockout.
 
 \begin{table}[t]
-  \caption{Retention by first-note outcome at day 7. Wilson 95\% intervals.}
+  \caption{Retention by first-note outcome at day 7.}
   \label{tab:primary}
   \begin{tabular}{lrrr}
     \toprule
@@ -446,7 +453,9 @@ and review. It located and downloaded the data snapshot, which we checked agains
 published data dictionary and a second release. It read the scoring source code and
 documentation to summarize the platform rules, including the lockout rule, and wrote the
 Python and DuckDB code that ingests the data, builds the contributor table, and runs the
-analyses. It also drafted the report, which we edited, and Claude Opus 5.5 helped revise
+analyses. None of us has a statistics background, so for the confidence intervals
+(Section~\ref{sec:retention}) we used the methods it recommended as the best fit for our
+data. It also drafted the report, which we edited, and Claude Opus 5.5 helped revise
 it.
 
 The decisions were ours. Work stopped at three review points: after the platform rules

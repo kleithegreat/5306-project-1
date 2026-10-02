@@ -400,3 +400,12 @@ The September 18 entry's "compiles clean" was wrong. The build always threw 22 L
 bibliography style cannot handle that. latexmk exited 12, but the PDF still came out, so
 nobody noticed. Fixed by adding `year = {2026}` to the three entries. The uncited
 `communitynotes` entry was deleted from `refs.bib`.
+
+## Report — interval methods in plain language (2026-10-02)
+
+Neither we nor the course audience are statisticians, so "Wilson 95% intervals and
+Newcombe hybrid-score intervals" meant nothing to a reader. The Retention section now says
+what a CI is, how to read one for a difference, and names the two methods only as standard
+choices that hold up for small groups. Use of AI now states that Claude recommended these
+methods and we adopted them. Table 1's caption claimed Wilson intervals the table does not
+show; that clause was removed.
